@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>YouTube Mix Generator</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="header">
+        <div class="header-title">
+          <img src="../icons/music.svg" />
+          <div class="header-content">
+            <h1>YouTube Mix</h1>
+            <p>Playlist Generator</p>
+          </div>
+        </div>
+
+        <button id="close-popup" class="close-btn">✕</button>
+      </div>
+
+      <div class="info-card">
+        <img src="../icons/sparkler.svg" class="card-icon" />
+
+        <p>
+          Convert the current YouTube Mix into a
+          <span>shareable playlist</span> in one click.
+        </p>
+      </div>
+
+      <button id="convert-btn" class="btn-generate">
+        <img id="btn-icon" src="../icons/play.svg" />
+
+        <span id="btn-text">Convert Playlist</span>
+      </button>
+
+      <div class="setting">
+        <label>
+          <input type="checkbox" id="show-youtube-btn" />
+
+          <span>Show Convert button on YouTube</span>
+        </label>
+
+        <div class="info-wrapper">
+          <img src="../icons/info-circle.svg" class="info-icon" />
+
+          <div class="tooltip">
+            Toggle this on if you want the Convert Playlist button to appear
+            directly on YouTube Mix pages.
+          </div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <div>
+          <img src="../icons/shield-tick.svg" />
+
+          <span>Safe & Secure</span>
+        </div>
+
+        <div>
+          <img src="../icons/heart.svg" />
+
+          <span>Made for music lovers</span>
+        </div>
+      </div>
+
+      <p class="version">Version 1.0</p>
+    </div>
+
+    <script src="popup.js"></script>
+  </body>
+</html>
