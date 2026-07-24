@@ -114,33 +114,128 @@
   margin-bottom: 14px;
 }
 
-#yt-copy-btn {
+.copy-popup-btn {
   width: 100%;
 
   padding: 10px;
 
   border: none;
-
   border-radius: 10px;
 
   background: #dc2626;
-
   color: #fff;
+
+  font-size: 14px;
+  font-weight: 500;
 
   cursor: pointer;
 
   transition: 0.2s;
 }
 
-#yt-copy-btn:hover {
+.copy-popup-btn:hover {
   background: #b91c1c;
 }
 
-#yt-copy-btn.copied {
+.copy-popup-btn.copied {
   background: #16a34a;
   cursor: default;
 }
 
-#yt-copy-btn:disabled {
+.copy-popup-btn:disabled {
   opacity: 1;
+}
+
+.copy-popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 14px;
+}
+
+.copy-popup-close {
+  width: 28px;
+  height: 28px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  border-radius: 50%;
+
+  background: transparent;
+  color: #a1a1aa;
+
+  cursor: pointer;
+
+  font-size: 16px;
+
+  transition: 0.2s;
+}
+
+.copy-popup-close:hover {
+  background: #27272a;
+  color: #fff;
+}
+
+.copy-popup-success {
+  color: #22c55e;
+
+  font-size: 16px;
+  font-weight: 600;
+
+  margin-bottom: 14px;
+}
+
+.copy-popup-card {
+  background: #27272a;
+
+  border: 1px solid #3f3f46;
+
+  border-radius: 10px;
+
+  padding: 12px;
+
+  margin-bottom: 14px;
+}
+
+.copy-popup-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  color: #f4f4f5;
+
+  font-size: 14px;
+}
+
+.copy-popup-row:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.view-playlist-btn {
+  width: 100%;
+
+  margin-top: 14px;
+
+  padding: 10px;
+
+  border: none;
+  border-radius: 8px;
+
+  background: #2563eb;
+  color: #fff;
+
+  font-size: 14px;
+  font-weight: 500;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.view-playlist-btn:hover {
+  background: #1d4ed8;
 }

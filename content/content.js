@@ -10,8 +10,8 @@ function checkMix() {
   const isMix = listId && (listId.startsWith("RD") || listId.startsWith("RDO"));
 
   chrome.storage.sync.get(
-    { showYoutubeButton: true },
-    ({ showYoutubeButton }) => {
+    { showYoutubeButton: true, autoCopyPlaylist: false },
+    ({ showYoutubeButton, autoCopyPlaylist }) => {
       if (isMix && showYoutubeButton) {
         injectButton();
       } else {
@@ -61,9 +61,24 @@ async function handleConvert() {
   setButtonLoading(true);
 
   try {
-    generatedPlaylistUrl = await generatePlaylist();
+    const result = await generatePlaylist();
 
-    showCopyPopup();
+    generatedPlaylistUrl = result.url;
+
+    console.log(result);
+
+    await chrome.runtime.sendMessage({
+      type: "SAVE_HISTORY",
+      data: {
+        title: result.title || `${result.totalSongs} Songs Playlist`,
+        url: result.url,
+        totalSongs: result.totalSongs,
+        playbackTime: result.playbackTime,
+        createdAt: Date.now(),
+      },
+    });
+
+    showCopyPopup(result);
   } catch (err) {
     console.error(err);
   } finally {
@@ -72,7 +87,7 @@ async function handleConvert() {
   }
 }
 
-function showCopyPopup() {
+function showCopyPopup(data) {
   document.getElementById("yt-copy-popup")?.remove();
 
   const popup = document.createElement("div");
@@ -80,29 +95,135 @@ function showCopyPopup() {
   popup.id = "yt-copy-popup";
 
   popup.innerHTML = `
-      <div class="yt-popup-title">
-          Playlist Generated
+    <div class="copy-popup-header">
+
+      <div class="copy-popup-success">
+        ✓ Playlist Generated
       </div>
 
-      <button id="yt-copy-btn">
-          Copy Playlist URL
+      <button class="copy-popup-close" title="Close">
+        ✕
       </button>
+
+    </div>
+
+    <div class="copy-popup-card">
+
+      <div class="copy-popup-row">
+        <span>🎵 Songs</span>
+        <span>${data.totalSongs}</span>
+      </div>
+
+      <div class="copy-popup-row">
+        <span>⏱ Playback</span>
+        <span>${data.playbackTime}</span>
+      </div>
+
+      <button class="view-playlist-btn">
+        ▶ View Playlist
+      </button>
+
+    </div>
+
+    <button class="copy-popup-btn">
+      Copy Playlist URL
+    </button>
+
+    <button class="secondary-btn" id="ytm-qr-btn">
+      <img src="${chrome.runtime.getURL("icons/qr-code.svg")}" />
+      Show QR Code
+    </button>
+
+    <div id="ytm-qr-modal" class="qr-modal hidden">
+      <div class="qr-content">
+        <button id="ytm-close-qr">✕</button>
+
+        <div id="ytm-qr-container"></div>
+
+        <p>Scan to open playlist</p>
+
+        <button id="ytm-download-qr" class="action-btn">
+          Download QR
+        </button>
+      </div>
+    </div>
   `;
 
   document.body.appendChild(popup);
 
-  document.getElementById("yt-copy-btn").onclick = async (e) => {
-    const button = e.target;
+  const button = popup.querySelector(".copy-popup-btn");
 
+  const viewButton = popup.querySelector(".view-playlist-btn");
+
+  const closeButton = popup.querySelector(".copy-popup-close");
+
+  const qrBtn = popup.querySelector("#ytm-qr-btn");
+  const qrModal = popup.querySelector("#ytm-qr-modal");
+  const qrContainer = popup.querySelector("#ytm-qr-container");
+  const closeQr = popup.querySelector("#ytm-close-qr");
+  const downloadQr = popup.querySelector("#ytm-download-qr");
+
+  closeButton.onclick = () => {
+    popup.remove();
+  };
+
+  viewButton.onclick = () => {
+    window.open(data.url, "_blank");
+  };
+
+  qrBtn.addEventListener("click", () => {
+    qrContainer.innerHTML = "";
+
+    new QRCode(qrContainer, {
+      text: data.url,
+      width: 220,
+      height: 220,
+    });
+
+    qrModal.classList.remove("hidden");
+  });
+
+  closeQr.addEventListener("click", () => {
+    qrModal.classList.add("hidden");
+  });
+
+  qrModal.addEventListener("click", (e) => {
+    if (e.target === qrModal) {
+      qrModal.classList.add("hidden");
+    }
+  });
+
+  downloadQr.addEventListener("click", () => {
+    const canvas = qrContainer.querySelector("canvas");
+
+    if (canvas) {
+      const link = document.createElement("a");
+      link.download = "playlist-qr.png";
+      link.href = canvas.toDataURL("image/png");
+      link.click();
+      return;
+    }
+
+    const img = qrContainer.querySelector("img");
+
+    if (img) {
+      const link = document.createElement("a");
+      link.download = "playlist-qr.png";
+      link.href = img.src;
+      link.click();
+    }
+  });
+
+  button.onclick = async () => {
     try {
-      await navigator.clipboard.writeText(generatedPlaylistUrl);
+      await navigator.clipboard.writeText(data.url);
 
       button.textContent = "✓ Link Copied";
       button.disabled = true;
       button.classList.add("copied");
 
       setTimeout(() => {
-        document.getElementById("yt-copy-popup")?.remove();
+        popup.remove();
       }, 1200);
     } catch {
       button.textContent = "Copy Failed";
@@ -119,30 +240,98 @@ function copyPlaylist() {
 }
 
 function getVideoIds() {
-  const links = document.querySelectorAll(
-    "ytd-playlist-panel-video-renderer a#wc-endpoint",
-  );
+  const videos = document.querySelectorAll("ytd-playlist-panel-video-renderer");
 
-  const ids = [];
+  const playlist = [];
 
-  links.forEach((link) => {
+  videos.forEach((video) => {
+    const link = video.querySelector("a#wc-endpoint");
+
+    if (!link) return;
+
     const href = link.getAttribute("href");
 
     if (!href) return;
 
     const url = new URL(href, location.origin);
-    const videoId = url.searchParams.get("v");
 
-    if (videoId && !ids.includes(videoId)) {
-      ids.push(videoId);
+    const id = url.searchParams.get("v");
+
+    const duration =
+      video.querySelector("#time-status")?.textContent.trim() ??
+      video
+        .querySelector("span.ytd-thumbnail-overlay-time-status-renderer")
+        ?.textContent.trim() ??
+      "";
+
+    if (id && !playlist.some((v) => v.id === id)) {
+      playlist.push({
+        id,
+        duration,
+      });
     }
   });
 
-  return ids;
+  return playlist;
+}
+
+function durationToSeconds(duration) {
+  if (!duration) return 0;
+
+  const parts = duration.split(":").map(Number);
+
+  if (parts.length === 2) {
+    const [m, s] = parts;
+
+    return m * 60 + s;
+  }
+
+  if (parts.length === 3) {
+    const [h, m, s] = parts;
+
+    return h * 3600 + m * 60 + s;
+  }
+
+  return 0;
+}
+
+function getPlaylistStats(playlist) {
+  const totalSongs = playlist.length;
+
+  const totalSeconds = playlist.reduce(
+    (sum, video) => sum + durationToSeconds(video.duration),
+    0,
+  );
+
+  console.log("Playlist Stats:", { totalSongs, totalSeconds });
+
+  return {
+    totalSongs,
+    totalSeconds,
+  };
+}
+
+function formatPlayback(seconds) {
+  const h = Math.floor(seconds / 3600);
+
+  const m = Math.floor((seconds % 3600) / 60);
+
+  if (h === 0) {
+    return `${m} min`;
+  }
+
+  return `${h} hr ${m} min`;
 }
 
 function generatePlaylist() {
-  const videoIds = getVideoIds();
+  const playlist = getVideoIds();
+
+  const stats = getPlaylistStats(playlist);
+
+  console.log("Playlist Stats:", stats);
+  console.log("Playback:", formatPlayback(stats.totalSeconds));
+
+  const videoIds = playlist.map((video) => video.id);
 
   const playlistUrl = `https://www.youtube.com/watch_videos?video_ids=${videoIds.join(",")}`;
 
@@ -158,7 +347,11 @@ function generatePlaylist() {
           return;
         }
 
-        resolve(response.url);
+        resolve({
+          url: response.url,
+          totalSongs: stats.totalSongs,
+          playbackTime: formatPlayback(stats.totalSeconds),
+        });
       },
     );
   });
@@ -183,10 +376,10 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     console.log("Popup requested conversion");
 
     generatePlaylist()
-      .then((url) => {
+      .then((result) => {
         sendResponse({
           success: true,
-          url,
+          ...result,
         });
       })
       .catch(() => {
