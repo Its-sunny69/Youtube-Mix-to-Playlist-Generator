@@ -97,7 +97,7 @@ function showCopyPopup(data) {
   popup.innerHTML = `
     <div class="copy-popup-header">
 
-      <div class="copy-popup-success">
+      <div class="copy-popup-title">
         ✓ Playlist Generated
       </div>
 
@@ -109,40 +109,53 @@ function showCopyPopup(data) {
 
     <div class="copy-popup-card">
 
-      <div class="copy-popup-row">
-        <span>🎵 Songs</span>
-        <span>${data.totalSongs}</span>
+      <div class="card-details">
+        <div class="copy-popup-row">
+          <span class="card-details-label"><img src=${chrome.runtime.getURL("/icons/music.svg")} class="card-details-icon"/> Songs</span>
+          <span>${data.totalSongs}</span>
+        </div>
+
+        <div class="copy-popup-row">
+          <span class="card-details-label"><img src=${chrome.runtime.getURL("/icons/clock.svg")} class="card-details-icon"/> Playback</span>
+          <span>${data.playbackTime}</span>
+        </div>
       </div>
 
-      <div class="copy-popup-row">
-        <span>⏱ Playback</span>
-        <span>${data.playbackTime}</span>
-      </div>
+      <div class="card-btn">
+        <button class="view-playlist-btn">
+          <img src=${chrome.runtime.getURL("/icons/play.svg")} class="card-btn-icon"/>
+          View Playlist
+        </button>
 
-      <button class="view-playlist-btn">
-        ▶ View Playlist
-      </button>
+        <button id="ytm-qr-btn" class="show-qr-btn">
+          <img src=${chrome.runtime.getURL("/icons/qr-code.svg")} class="card-btn-icon"/>
+          Show QR Code
+        </button>
+      </div>
 
     </div>
 
     <button class="copy-popup-btn">
+      <img src=${chrome.runtime.getURL("/icons/copy.svg")} class="card-btn-icon"/>
       Copy Playlist URL
-    </button>
-
-    <button class="secondary-btn" id="ytm-qr-btn">
-      <img src="${chrome.runtime.getURL("icons/qr-code.svg")}" />
-      Show QR Code
     </button>
 
     <div id="ytm-qr-modal" class="qr-modal hidden">
       <div class="qr-content">
-        <button id="ytm-close-qr">✕</button>
+        <div class="qr-close">
+          <button id="ytm-close-qr" class="copy-popup-close" title="Close QR">
+            ✕
+          </button>
+        </div>
 
-        <div id="ytm-qr-container"></div>
+        <div class="qr-code-container">
+          <div id="ytm-qr-container" class="qr-code"></div>
 
-        <p>Scan to open playlist</p>
+          <p>Scan to open playlist</p>
+        </div>
 
-        <button id="ytm-download-qr" class="action-btn">
+        <button id="ytm-download-qr" class="download-qr-btn">
+          <img src=${chrome.runtime.getURL("/icons/download.svg")} class="card-btn-icon"/>
           Download QR
         </button>
       </div>
@@ -218,7 +231,10 @@ function showCopyPopup(data) {
     try {
       await navigator.clipboard.writeText(data.url);
 
-      button.textContent = "✓ Link Copied";
+      button.innerHTML = `
+        <img src=${chrome.runtime.getURL("/icons/tick-circle.svg")} class="card-btn-icon"/>
+        Link Copied
+        `;
       button.disabled = true;
       button.classList.add("copied");
 

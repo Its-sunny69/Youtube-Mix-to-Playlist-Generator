@@ -11,50 +11,62 @@
       <div id="main-view" class="view active">
         <div class="header">
           <div class="header-title">
-            <img src="../icons/music.svg" />
+            <img src="../icons/64.png" />
             <div class="header-content">
               <h1>YouTube Mix</h1>
               <p>Playlist Generator</p>
             </div>
           </div>
 
-          <button id="settings-btn" class="icon-btn">⚙</button>
+          <div class="header-actions">
+            <button id="settings-btn" class="icon-btn">⚙</button>
 
-          <button id="close-popup" class="close-btn">✕</button>
+            <button id="close-popup" class="close-btn">✕</button>
+          </div>
         </div>
 
         <div class="popup-body">
           <div id="description-view" class="popup-view active">
-            <img src="../icons/sparkler.svg" class="card-icon" />
+            <div class="description-card">
+              <img src="../icons/sparkler.svg" class="card-icon" />
 
-            <p class="description">
-              Convert your current YouTube Mix into a shareable playlist in one
-              click.
-            </p>
+              <p class="description">
+                Convert your current YouTube Mix into a shareable playlist in
+                one click.
+              </p>
+            </div>
           </div>
 
           <div id="details-view" class="popup-view">
             <div class="playlist-card">
               <div class="playlist-status">✓ Playlist Generated</div>
 
-              <div class="playlist-stat">
-                <span>🎵 Songs</span>
+              <div class="playlist-stats">
+                <span class="stats-label">
+                  <img src="../icons/music.svg" class="stats-icon" /> Songs
+                </span>
                 <span id="songs-count">0</span>
               </div>
 
-              <div class="playlist-stat">
-                <span>⏱ Playback</span>
+              <div class="playlist-stats">
+                <span class="stats-label">
+                  <img src="../icons/clock.svg" class="stats-icon" /> Playback
+                  Time
+                </span>
                 <span id="playback-time">0 min</span>
               </div>
 
-              <button id="view-playlist-btn" class="view-playlist-btn">
-                ▶ View Playlist
-              </button>
+              <div class="playlist-actions">
+                <button id="view-playlist-btn" class="view-playlist-btn">
+                  <img src="../icons/play.svg" class="stats-action-icon" />
+                  View Playlist
+                </button>
 
-              <button id="qr-btn" class="secondary-btn">
-                <img src="../icons/qr-code.svg" />
-                Show QR Code
-              </button>
+                <button id="qr-btn" class="show-qr-btn">
+                  <img src="../icons/qr-code.svg" class="stats-action-icon" />
+                  Show QR Code
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -66,35 +78,64 @@
         </button>
 
         <div class="setting">
-          <label>
-            <input type="checkbox" id="show-youtube-btn" />
+          <div class="option">
+            <label>
+              <input type="checkbox" id="show-youtube-btn" />
+              <span>Show Convert button on YouTube</span>
+            </label>
 
-            <span>Show Convert button on YouTube</span>
-          </label>
+            <div class="info-wrapper">
+              <img src="../icons/info-circle.svg" class="info-icon" />
 
-          <div class="info-wrapper">
-            <img src="../icons/info-circle.svg" class="info-icon" />
-
-            <div class="tooltip">
-              Toggle this on if you want the Convert Playlist button to appear
-              directly on YouTube Mix pages.
+              <div class="tooltip">
+                Toggle this on if you want the Convert Playlist button to appear
+                directly on YouTube Mix pages.
+              </div>
             </div>
           </div>
 
-          <label class="toggle-row">
-            <input type="checkbox" id="auto-copy-toggle" />
-
-            <span>Auto Copy Playlist URL</span>
-
-            <div class="tooltip">
-              <img src="../icons/info-circle.svg" />
-            </div>
-          </label>
+          <div class="option">
+            <label class="toggle-row">
+              <input type="checkbox" id="auto-copy-toggle" />
+              <span>Auto Copy Playlist URL</span>
+            </label>
+          </div>
         </div>
 
         <button id="history-btn" class="history-btn">
-          View Recent History
+          <img class="history-btn-icon" src="../icons/list.svg" />
+
+          <span>View Recent History</span>
         </button>
+
+        <div class="important-description">
+          <img
+            src="../icons/important-info-circle.svg"
+            class="important-description-icon"
+          />
+          <p>
+            The playlist links are temporary and may get expired in 48 hours
+            from the time of generation.
+          </p>
+        </div>
+
+        <div class="feedback">
+          <p class="support-title">
+            Enjoying YouTube Mix Playlist Generator? Rate us on platform below
+            ⭐.
+          </p>
+
+          <div class="support-links">
+            <button id="rate-extension" class="support-btn">
+              <img src="../icons/chrome.svg" /> Store
+            </button>
+
+            <button id="github-extension" class="support-btn">
+              <img src="../icons/github.svg" />
+              GitHub
+            </button>
+          </div>
+        </div>
 
         <div class="footer">
           <div>
@@ -106,38 +147,38 @@
           <div>
             <img src="../icons/heart.svg" />
 
-            <span>Made for music lovers</span>
+            <span>Made for Music Lovers</span>
           </div>
-        </div>
-
-        <p class="support-title">Enjoying YouTube Mix Generator?</p>
-        
-        <div class="support-links">
-          <button id="rate-extension" class="support-btn">
-            ⭐ Rate on Chrome Store
-          </button>
-
-          <button id="github-extension" class="support-btn">
-            <img src="../icons/github.svg" />
-            Star on GitHub
-          </button>
         </div>
 
         <p class="version">Version 1.0</p>
       </div>
 
       <div id="history-view" class="view">
-        <div class="page-header">
+        <div class="history-header">
           <button id="back-history" class="back-btn">← Back</button>
 
           <h2>Recent History</h2>
+        </div>
 
-          <button class="clear-history-btn" id="clear-history">
-            🗑 Clear History
-          </button>
+        <div class="important-description">
+          <img
+            src="../icons/important-info-circle.svg"
+            class="important-description-icon"
+          />
+          <p>
+            The playlist links are temporary and may get expired in 48 hours
+            from the time of generation.
+          </p>
         </div>
 
         <div id="history-list" class="history-list"></div>
+
+        <button class="clear-history-btn" id="clear-history">
+          <img src="../icons/delete.svg" class="history-btn-icon" />
+
+          <span>Clear History</span>
+        </button>
       </div>
 
       <div id="settings-view" class="view">
@@ -150,8 +191,11 @@
         <div class="settings-list">
           <div class="settings-group">
             <button class="settings-item" id="theme-btn">
-              <span>🌙 Theme</span>
-              <span id="theme-arrow">▼</span>
+              <span class="setting-label">
+                <img src="../icons/theme.svg" class="settings-icon" />
+                Theme
+              </span>
+              <span id="theme-arrow">›</span>
             </button>
 
             <div id="theme-options" class="theme-options hidden">
@@ -173,7 +217,10 @@
           </div>
 
           <button class="settings-item" id="language-btn">
-            <span>🌐 Language</span>
+            <span class="setting-label">
+              <img src="../icons/language.svg" class="settings-icon" />
+              Language
+            </span>
             <span>›</span>
           </button>
         </div>
@@ -181,13 +228,22 @@
 
       <div id="qr-modal" class="qr-modal hidden">
         <div class="qr-content">
-          <button id="close-qr">✕</button>
+          <div class="qr-header">
+            <button id="close-qr" class="close-btn">✕</button>
+          </div>
 
-          <div id="qr-container"></div>
+          <div class="qr-code-container">
+            <div id="qr-container"></div>
 
-          <p>Scan to open playlist</p>
+            <p>Scan to open playlist</p>
+          </div>
 
-          <button id="download-qr" class="action-btn">Download QR</button>
+          <div class="qr-actions">
+            <button id="download-qr" class="download-qr-btn">
+              <img src="../icons/download.svg" class="download-qr-btn-icon" />
+              Download QR
+            </button>
+          </div>
         </div>
       </div>
     </div>

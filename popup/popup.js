@@ -185,7 +185,7 @@ convertBtn.addEventListener("click", async () => {
 
       convertBtn.className = "btn-copy";
       convertBtn.innerHTML = `
-                <img src="../icons/tick-circle.svg">
+                <img src="../icons/copy.svg">
                 Copy Playlist URL
             `;
     },
@@ -296,11 +296,18 @@ function renderHistory(history) {
 
           <div class="history-actions">
             <button class="history-copy" data-url="${item.url}">
-              📋 Copy
+             <img
+                src="../icons/copy.svg"
+                class="history-list-icon copy-icon"
+                alt="Copy"
+              />
+
+              <span class="history-copy-text">Copy</span>
             </button>
 
             <button class="history-view" data-url="${item.url}">
-              ▶ View
+              <img src="../icons/play.svg" class="history-list-icon"/>
+              <span>View</span>
             </button>
           </div>
         </div>
@@ -313,9 +320,29 @@ function renderHistory(history) {
 
 function bindHistoryActions() {
   document.querySelectorAll(".history-copy").forEach((btn) => {
-    btn.onclick = async () => {
-      await navigator.clipboard.writeText(btn.dataset.url);
-    };
+    btn.addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(btn.dataset.url);
+
+        // Prevent multiple timers if clicked repeatedly
+        if (btn.dataset.timeoutId) {
+          clearTimeout(Number(btn.dataset.timeoutId));
+        }
+
+        btn.classList.add("copied");
+        btn.querySelector(".history-copy-text").textContent = "Copied";
+
+        const timeoutId = setTimeout(() => {
+          btn.classList.remove("copied");
+          btn.querySelector(".history-copy-text").textContent = "Copy";
+          delete btn.dataset.timeoutId;
+        }, 1500);
+
+        btn.dataset.timeoutId = timeoutId;
+      } catch (err) {
+        console.error("Failed to copy:", err);
+      }
+    });
   });
 
   document.querySelectorAll(".history-view").forEach((btn) => {
@@ -372,15 +399,19 @@ const themeArrow = document.getElementById("theme-arrow");
 themeBtn.addEventListener("click", () => {
   themeOptions.classList.toggle("hidden");
 
-  themeArrow.textContent = themeOptions.classList.contains("hidden")
-    ? "▼"
-    : "▲";
+  // themeArrow.textContent = themeOptions.classList.contains("hidden")
+  //   ? "▼"
+  //   : "▲";
 });
 
 function updateThemeSelection(selectedTheme) {
   document.querySelectorAll(".theme-option").forEach((option) => {
+    const isSelected = option.dataset.theme === selectedTheme;
+
     option.querySelector(".theme-check").textContent =
       option.dataset.theme === selectedTheme ? "✓" : "";
+
+    option.classList.toggle("selected", isSelected);
   });
 }
 
@@ -478,8 +509,6 @@ rateExtension.addEventListener("click", () => {
 
 githubExtension.addEventListener("click", () => {
   chrome.tabs.create({
-          url: "https://www.example.com/",
-        });
+    url: "https://www.example.com/",
+  });
 });
-
-
