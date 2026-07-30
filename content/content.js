@@ -87,12 +87,16 @@ async function handleConvert() {
   }
 }
 
-function showCopyPopup(data) {
+async function showCopyPopup(data) {
   document.getElementById("yt-copy-popup")?.remove();
 
   const popup = document.createElement("div");
 
   popup.id = "yt-copy-popup";
+
+  const { popupTheme = "system" } = await chrome.storage.sync.get("popupTheme");
+
+  applyTheme(popup, popupTheme);
 
   popup.innerHTML = `
     <div class="copy-popup-header">
@@ -111,24 +115,36 @@ function showCopyPopup(data) {
 
       <div class="card-details">
         <div class="copy-popup-row">
-          <span class="card-details-label"><img src=${chrome.runtime.getURL("/icons/music.svg")} class="card-details-icon"/> Songs</span>
+          <span class="card-details-label">
+            <span data-icon="music"></span>
+
+            Songs
+          </span>
+
           <span>${data.totalSongs}</span>
         </div>
 
         <div class="copy-popup-row">
-          <span class="card-details-label"><img src=${chrome.runtime.getURL("/icons/clock.svg")} class="card-details-icon"/> Playback</span>
+          <span class="card-details-label">
+            <span data-icon="clock"></span>
+
+            Playback
+          </span>
+
           <span>${data.playbackTime}</span>
         </div>
       </div>
 
       <div class="card-btn">
         <button class="view-playlist-btn">
-          <img src=${chrome.runtime.getURL("/icons/play.svg")} class="card-btn-icon"/>
+          <span data-icon="playFilled"></span>
+
           View Playlist
         </button>
 
         <button id="ytm-qr-btn" class="show-qr-btn">
-          <img src=${chrome.runtime.getURL("/icons/qr-code.svg")} class="card-btn-icon"/>
+          <span data-icon="qrCode"></span>
+
           Show QR Code
         </button>
       </div>
@@ -137,6 +153,7 @@ function showCopyPopup(data) {
 
     <button class="copy-popup-btn">
       <img src=${chrome.runtime.getURL("/icons/copy.svg")} class="card-btn-icon"/>
+      
       Copy Playlist URL
     </button>
 
@@ -156,6 +173,7 @@ function showCopyPopup(data) {
 
         <button id="ytm-download-qr" class="download-qr-btn">
           <img src=${chrome.runtime.getURL("/icons/download.svg")} class="card-btn-icon"/>
+
           Download QR
         </button>
       </div>
@@ -163,6 +181,8 @@ function showCopyPopup(data) {
   `;
 
   document.body.appendChild(popup);
+
+  renderIcons(popup);
 
   const button = popup.querySelector(".copy-popup-btn");
 
@@ -245,6 +265,22 @@ function showCopyPopup(data) {
       button.textContent = "Copy Failed";
     }
   };
+}
+
+function applyTheme(element, theme) {
+  element.classList.remove("light-theme");
+
+  let actualTheme = theme;
+
+  if (theme === "system") {
+    actualTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark"
+      : "light";
+  }
+
+  if (actualTheme === "light") {
+    element.classList.add("light-theme");
+  }
 }
 
 function copyPlaylist() {
@@ -413,3 +449,13 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     checkMix();
   }
 });
+
+function renderIcons(root = document) {
+  root.querySelectorAll("[data-icon]").forEach((el) => {
+    const icon = Icons[el.dataset.icon];
+
+    if (icon) {
+      el.innerHTML = icon;
+    }
+  });
+}

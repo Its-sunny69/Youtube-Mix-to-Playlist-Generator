@@ -2,8 +2,8 @@
   /* Backgrounds */
   --bg: #000000;
   --surface: #101010;
+  --surface-hover: #27272a;
   --surface-light: #303030;
-  --selected-option-bg: #303030bb;
 
   /* Text */
   --text: #ffffff;
@@ -11,6 +11,10 @@
 
   /* Borders */
   --border: #2d2d33;
+
+  /* Primary */
+  --primary: #3b82f6;
+  --primary-hover: #2563eb;
 
   /* Success */
   --success: #16a34a;
@@ -30,22 +34,29 @@
 
   /* Footer */
   --divider: #2d2d33;
-  --version: #6d6d6d;
 
-  --icon-color: #ffffff;
+  /* Shadow */
+  --glow-danger: 0 0 24px #ff3232ef;
+  --glow-success: 0 0 24px #16a34aef;
+  --glow-primary: 0 0 24px #3b82f6ef;
+  --glow-warning: 0 0 24px #f59e0bef;
 }
 
 body.light-theme {
-  --bg: #fff5f5;
+
+  --bg: #f8fafc;
 
   --surface: #ffffff;
-  --surface-light: #ded4d4;
-  --selected-option-bg: #e6d6d6;
+  --surface-hover: #f3f4f6;
+  --surface-light: #e5e7eb;
 
   --text: #111827;
   --text-secondary: #6b7280;
 
   --border: #d1d5db;
+
+  --primary: #2563eb;
+  --primary-hover: #1d4ed8;
 
   --success: #16a34a;
   --success-bg: #dcfce7;
@@ -57,12 +68,14 @@ body.light-theme {
   --blue-card-bg: #eff6ff;
   --blue-card-border: #bfdbfe;
 
-  --danger-card-bg: #ffe8e8;
+  --danger-card-bg: #fef2f2;
 
   --divider: #e5e7eb;
-  --version: #aeaeae;
 
-  --icon-color: #414141;
+  --glow-danger: none;
+  --glow-success: none;
+  --glow-primary: none;
+  --glow-warning: none;
 }
 
 * {
@@ -120,7 +133,7 @@ body {
 
 .header-content p {
   margin-top: 6px;
-  color: var(--danger);
+  color: #ff3232;
   font-size: 1rem;
   font-weight: 500;
 }
@@ -134,7 +147,7 @@ body {
 .icon-btn {
   width: 34px;
   height: 34px;
-  color: var(--text-secondary);
+  color: #8b8b95;
   padding: 2px;
   border: none;
   border-radius: 8px;
@@ -144,14 +157,14 @@ body {
 }
 
 .icon-btn:hover {
-  background: var(--surface-light);
-  color: var(--text);
+  background: #2b2b2b;
+  color: white;
 }
 
 .close-btn {
   width: 34px;
   height: 34px;
-  color: var(--text-secondary);
+  color: #8b8b95;
   padding: 2px;
   border: none;
   border-radius: 8px;
@@ -161,8 +174,8 @@ body {
 }
 
 .close-btn:hover {
-  background: var(--surface-light);
-  color: var(--text);
+  background: #27272a;
+  color: white;
 }
 
 /* ---------- Info Card ---------- */
@@ -171,7 +184,6 @@ body {
   width: 22px;
   height: 22px;
   flex-shrink: 0;
-  color: var(--icon-color);
 }
 
 .popup-view {
@@ -199,14 +211,14 @@ body {
 }
 
 .playlist-card {
-  background: var(--success-bg);
+  background: #1f372c;
   border-radius: 10px;
   padding: 14px;
   width: 100%;
 }
 
 .playlist-status {
-  color: var(--success);
+  color: #00d154;
   font-weight: 600;
   margin-bottom: 12px;
 }
@@ -215,7 +227,7 @@ body {
   display: flex;
   justify-content: space-between;
   margin-top: 8px;
-  color: var(--text);
+  color: #ffffff;
 }
 
 .stats-label {
@@ -229,7 +241,6 @@ body {
   width: 18px;
   height: 18px;
   flex-shrink: 0;
-  color: var(--icon-color);
 }
 
 .playlist-actions {
@@ -238,7 +249,7 @@ body {
 }
 
 .view-playlist-btn {
-  width: 50%;
+  flex-grow: 1;
   margin-top: 14px;
   padding: 10px;
   border: none;
@@ -261,13 +272,12 @@ body {
   width: 18px;
   height: 18px;
   flex-shrink: 0;
-  color: var(--icon-color);
 }
 
 /* ---------- QR Code ---------- */
 
 .show-qr-btn {
-  width: 50%;
+  width: fit;
   margin-top: 14px;
   padding: 10px;
   border: none;
@@ -301,7 +311,7 @@ body {
 }
 
 .qr-content {
-  background: var(--bg);
+  background: black;
   border: 2px solid #3b82f6;
   border-radius: 12px;
   padding: 20px;
@@ -339,10 +349,6 @@ body {
   font-weight: 500;
   color: white;
   gap: 8px;
-}
-
-.download-qr-btn:hover {
-  opacity: 0.8;
 }
 
 .download-qr-btn-icon {
@@ -388,29 +394,28 @@ body {
   }
 }
 
-.btn-generate:hover,
-.btn-copy:hover {
+.btn-generate:hover {
   opacity: 0.8;
 }
 
 .btn-generate {
   background: #ff3232;
-  box-shadow: 0 0 24px #ff3232ef;
+  box-shadow: 0px 0px 24px #ff3232ef;
 }
 
 .btn-loading {
   background: #f59e0b;
-  box-shadow: 0 0 24px #f59e0bef;
+  box-shadow: 0px 0px 24px #f59e0bef;
 }
 
 .btn-copy {
   background: #3b82f6;
-  box-shadow: 0 0 24px #3b82f6ef;
+  box-shadow: 0px 0px 24px #3b82f6ef;
 }
 
 .btn-success {
   background: #16a34a;
-  box-shadow: 0 0 24px #16a34aef;
+  box-shadow: 0px 0px 24px #16a34aef;
 }
 
 .close-btn {
@@ -418,15 +423,15 @@ body {
   height: 28px;
   border: none;
   background: transparent;
-  color: var(--text-secondary);
+  color: #8b8b95;
   border-radius: 6px;
   cursor: pointer;
   transition: 0.2s;
 }
 
 .close-btn:hover {
-  background: var(--surface-light);
-  color: var(--text);
+  background: #27272a;
+  color: white;
 }
 
 /* ---------- Setting Options ---------- */
@@ -479,7 +484,6 @@ body {
   height: 18px;
   cursor: pointer;
   opacity: 0.7;
-  color: var(--icon-color);
 }
 
 .tooltip {
@@ -487,13 +491,13 @@ body {
   right: 0;
   top: 130%;
   width: 220px;
-  background: var(--surface);
-  color: var(--text);
+  background: #27272a;
+  color: #ffffff;
   font-size: 12px;
   line-height: 1.5;
   padding: 10px 12px;
   border-radius: 10px;
-  border: 1px solid var(--border);
+  border: 1px solid #3f3f46;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
   opacity: 0;
   visibility: hidden;
@@ -570,7 +574,7 @@ body {
 .history-title {
   font-size: 14px;
   font-weight: 600;
-  color: var(--text);
+  color: #ffffff;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -580,7 +584,7 @@ body {
 .history-meta {
   font-size: 12px;
   opacity: 0.7;
-  color: var(--text);
+  color: white;
   align-content: center;
   text-align: right;
 }
@@ -588,7 +592,7 @@ body {
 .history-date {
   font-size: 12px;
   opacity: 0.7;
-  color: var(--text);
+  color: white;
   align-content: center;
 }
 
@@ -638,22 +642,25 @@ body {
   background: var(--success-bg);
   border-color: var(--success);
   color: var(--text);
-  gap: 0px;
 }
 
 .history-copy.copied .copy-icon {
   display: none;
 }
 
+.history-copy .history-list-icon {
+  width: 16px;
+  height: 16px;
+}
+
 .history-list-icon {
   width: 12px;
   height: 12px;
-  color: var(--icon-color);
 }
 
 .history-empty {
   text-align: center;
-  color: var(--text-secondary);
+  color: #8b8b95;
   padding: 20px;
 }
 
@@ -667,7 +674,7 @@ body {
   justify-content: center;
   gap: 10px;
   background: #3b82f6;
-  color: white;
+  color: #ffffff;
   cursor: pointer;
   font-size: 14px;
   font-weight: 500;
@@ -689,7 +696,7 @@ body {
   border-radius: 10px;
   gap: 10px;
   background: #f59e0b2d;
-  color: var(--text-secondary);
+  color: #8b8b95;
   display: flex;
   align-items: center;
   margin-top: 24px;
@@ -705,7 +712,7 @@ body {
 .feedback {
   margin-top: 24px;
   padding: 14px;
-  border: 1px dashed var(--border);
+  border: 1px dashed rgb(52, 52, 52);
   border-radius: 10px;
 }
 
@@ -725,19 +732,19 @@ body {
   border: none;
   border-radius: 10px;
   background: transparent;
-  color: var(--text);
+  color: white;
+  /* font-weight: 600; */
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
 .support-btn:hover {
-  background: var(--surface-light);
+  background: #27272a;
 }
 
-.support-btn-icon {
+.support-btn img {
   width: 16px;
   height: 16px;
-  color: var(--icon-color);
 }
 
 /* ---------- Settings ---------- */
@@ -755,7 +762,7 @@ body {
   gap: 6px;
   border: none;
   background: transparent;
-  color: var(--text);
+  color: #ffffff;
   cursor: pointer;
   font-size: 14px;
   font-weight: 500;
@@ -764,7 +771,7 @@ body {
 }
 
 .back-btn:hover {
-  background: var(--surface-light);
+  background: #27272a;
 }
 
 .settings-list {
@@ -801,7 +808,6 @@ body {
 .settings-icon {
   width: 18px;
   height: 18px;
-  color: var(--icon-color);
 }
 
 .theme-options {
@@ -817,18 +823,27 @@ body {
   border: none;
   border-radius: 8px;
   background: transparent;
-  color: var(--text);
+  color: #ffffff;
   text-align: left;
   cursor: pointer;
   transition: 0.2s;
 }
 
 .theme-option:hover {
-  background: var(--surface-light);
+  background: #303030;
 }
 
 .theme-option.selected {
-  background-color: var(--selected-option-bg);
+  background-color: #303030bb;
+}
+
+.theme-option.selected:hover {
+  background-color: #303030bb;
+}
+
+.theme-option.active {
+  background: #404040;
+  font-weight: 600;
 }
 
 .hidden {
@@ -842,30 +857,27 @@ body {
   justify-content: space-between;
   margin-top: 24px;
   padding-top: 18px;
-  border-top: 1px solid var(--divider);
+  border-top: 1px solid #2d2d33;
 }
 
 .footer div {
   display: flex;
   align-items: center;
   gap: 8px;
-  color: var(--text-secondary);
+  color: #d1d5db;
   font-size: 13px;
 }
 
-.footer-icon {
+.footer img {
   width: 18px;
   height: 18px;
-  color: var(--icon-color);
 }
 
 /* ---------- Version ---------- */
 
 .version {
   text-align: center;
-  color: var(--version);
+  color: var(--text-secondary);
   font-size: 12px;
   margin-top: 22px;
 }
-
-/* fix icon colors for light theme.... also if possible make the var names of theme releted to content, not primary or secondary something... */

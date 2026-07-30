@@ -1,5 +1,7 @@
 console.log("Popup loaded");
 
+import { Icons } from "../icons/index.js";
+
 let generatedPlaylistUrl = "";
 let popupState = "generate";
 
@@ -296,17 +298,14 @@ function renderHistory(history) {
 
           <div class="history-actions">
             <button class="history-copy" data-url="${item.url}">
-             <img
-                src="../icons/copy.svg"
-                class="history-list-icon copy-icon"
-                alt="Copy"
-              />
+              <span data-icon="copyFilled"></span>
 
               <span class="history-copy-text">Copy</span>
             </button>
 
             <button class="history-view" data-url="${item.url}">
-              <img src="../icons/play.svg" class="history-list-icon"/>
+              <span data-icon="playFilled2"></span>
+
               <span>View</span>
             </button>
           </div>
@@ -314,6 +313,8 @@ function renderHistory(history) {
     `,
     )
     .join("");
+
+  renderIcons(historyList);
 
   bindHistoryActions();
 }
@@ -512,3 +513,15 @@ githubExtension.addEventListener("click", () => {
     url: "https://www.example.com/",
   });
 });
+
+function renderIcons(root = document) {
+  root.querySelectorAll("[data-icon]").forEach((el) => {
+    const iconName = el.dataset.icon;
+
+    if (Icons[iconName]) {
+      el.innerHTML = Icons[iconName];
+    }
+  });
+}
+
+renderIcons();

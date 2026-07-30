@@ -1,43 +1,18 @@
-:root {
-  /* Backgrounds */
-  --bg: #000000;
-  --surface: #101010;
-  --surface-light: #303030;
-
-  /* Text */
-  --text: #ffffff;
-  --text-secondary: #8b8b95;
-
-  /* Borders */
-  --border: #2d2d33;
-
-  /* Success */
-  --success: #16a34a;
-  --success-bg: #1f372c;
-
-  /* Danger */
-  --danger: #ff3232;
-
-  --icons-color: #ffffff;
+#yt-mix-generator-btn {
+  margin-left: 12px;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 18px;
+  background: #3ea6ff;
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
 }
 
-.light-theme {
-  --bg: #fff5f5;
-
-  --surface: #ffffff;
-  --surface-light: #ded4d4;
-
-  --text: #111827;
-  --text-secondary: #6b7280;
-
-  --border: #d1d5db;
-
-  --success: #16a34a;
-  --success-bg: #dcfce7;
-
-  --danger: #dc2626;
-
-  --icons-color: #414141;
+#yt-mix-generator-btn:hover {
+  opacity: 0.9;
 }
 
 #yt-mix-popup {
@@ -45,8 +20,8 @@
   top: 20px;
   right: 20px;
   width: 260px;
-  background: var(--bg);
-  color: var(--text);
+  background: #212121;
+  color: white;
   padding: 18px;
   border-radius: 12px;
   z-index: 999999;
@@ -64,8 +39,8 @@
   align-items: center;
   gap: 8px;
   padding: 10px 16px;
-  background: var(--danger);
-  color: var(--text);
+  background: #e2363d;
+  color: #ffffff;
   border: none;
   border-radius: 999px;
   cursor: pointer;
@@ -73,7 +48,7 @@
 }
 
 #yt-mix-generator-btn:hover {
-  opacity: 0.8;
+  background: #991b1b;
 }
 
 #yt-mix-generator-btn:disabled {
@@ -101,8 +76,8 @@
   top: 24px;
   right: 24px;
   width: 320px;
-  background: var(--bg);
-  border: 1px solid var(--border);
+  background: black;
+  border: 1px solid #27272a;
   border-radius: 14px;
   padding: 14px;
   z-index: 999999;
@@ -120,13 +95,13 @@
 }
 
 .copy-popup-title {
-  color: var(--success);
+  color: #22c55e;
 }
 
 .copy-popup-close {
   width: 34px;
   height: 34px;
-  color: var(--text-secondary);
+  color: #8b8b95;
   padding: 2px;
   border: none;
   border-radius: 8px;
@@ -136,15 +111,15 @@
 }
 
 .copy-popup-close:hover {
-  background: var(--surface-light);
-  color: var(--text);
+  background: #27272a;
+  color: white;
 }
 
 .copy-popup-card {
   display: flex;
   flex-direction: column;
   gap: 14px;
-  background: var(--success-bg);
+  background: #1f372c;
   border-radius: 10px;
   padding: 14px;
 }
@@ -159,7 +134,7 @@
 .copy-popup-row {
   display: flex;
   justify-content: space-between;
-  color: var(--text);
+  color: #ffffff;
 }
 
 .card-details-label {
@@ -173,7 +148,6 @@
   width: 18px;
   height: 18px;
   flex-shrink: 0;
-  color: var(--icon-color);
 }
 
 .card-btn {
@@ -225,7 +199,6 @@
   width: 18px;
   height: 18px;
   flex-shrink: 0;
-  color: var(--icon-color);
 }
 
 .copy-popup-btn {
@@ -233,7 +206,7 @@
   padding: 10px;
   border: none;
   border-radius: 10px;
-  background: var(--danger);
+  background: #ff3232;
   color: #ffffff;
   font-size: 14px;
   font-weight: 500;
@@ -251,7 +224,7 @@
 }
 
 .copy-popup-btn.copied {
-  background: var(--success);
+  background: #16a34a;
   cursor: default;
 }
 
@@ -265,6 +238,7 @@
 
 .qr-modal {
   margin-top: 22px;
+  background: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -272,7 +246,7 @@
 }
 
 .qr-content {
-  background: var(--bg);
+  background: black;
   border: 2px solid #3b82f6;
   border-radius: 12px;
   padding: 14px;
@@ -295,6 +269,7 @@
   flex-direction: column;
   gap: 4px;
   padding: 0px 14px;
+  /* border: 2px solid white; */
 }
 
 .qr-code {
@@ -315,12 +290,10 @@
   cursor: pointer;
   font-size: 14px;
   font-weight: 500;
-  color: #ffffff;
+  color: white;
   gap: 8px;
 }
 
 .download-qr-btn:hover {
   opacity: 0.8;
 }
-
-/* change icons color of view and qr.... */
