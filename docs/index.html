@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>YouTube Mix Playlist Generator</title>
+
+    <meta
+      name="description"
+      content="Convert YouTube Mix playlists into shareable YouTube playlists with one click."
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="index.css" />
+  </head>
+
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <a href="#top" class="brand">
+          <img
+            src="./assets/128.png"
+            alt="YouTube Mix Playlist Generator logo"
+          />
+          <span>
+            <strong>YouTube Mix</strong>
+            <small>Playlist Generator</small>
+          </span>
+        </a>
+
+        <nav class="site-nav" aria-label="Primary">
+          <a href="#features">Features</a>
+
+          <a href="#how-it-works">How it works</a>
+
+          <a href="privacy.html">Privacy</a>
+
+          <a
+            href="https://github.com/Its-sunny69/Youtube-Mix-to-Playlist-Generator"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GitHub
+          </a>
+        </nav>
+
+        <a
+          href="https://github.com/Its-sunny69/Youtube-Mix-to-Playlist-Generator"
+          class="button button-primary header-cta"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          View Source
+        </a>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" id="top">
+        <div class="container hero-grid">
+          <div class="hero-content">
+            <p class="eyebrow">Manifest V3 • Local-only processing</p>
+
+            <div class="hero-title">
+              Turn a
+              <span class="highlight">YouTube Mix</span>
+              into a
+              <span class="highlight2">Shareable playlist.</span>
+            </div>
+
+            <p class="lead">
+              Extract the songs from a mix, generate a playlist URL, copy it
+              instantly, and share it through QR code without signing in or
+              sending data to a remote service.
+            </p>
+
+            <div class="hero-actions">
+              <a href="privacy.html" class="button button-primary">
+                Read Privacy Policy
+              </a>
+
+              <a
+                href="https://github.com/Its-sunny69/Youtube-Mix-to-Playlist-Generator"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="button button-secondary"
+              >
+                View on GitHub
+              </a>
+            </div>
+
+            <div class="hero-points" aria-label="Key benefits">
+              <span>No login</span>
+
+              <span>Local storage</span>
+
+              <span>Recent history</span>
+
+              <span>Auto copy</span>
+            </div>
+          </div>
+
+          <div class="hero-visual">
+            <figure class="preview-card">
+              <img
+                src="./assets/banner.png"
+                alt="YouTube Mix Playlist Generator banner"
+              />
+
+              <figcaption>Extension preview</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container stats-grid">
+          <article class="stat-card">
+            <strong>One click</strong>
+            <span>Convert a YouTube Mix into a playlist quickly.</span>
+          </article>
+
+          <article class="stat-card">
+            <strong>Top 5 history</strong>
+            <span>Keep the latest generated playlists within reach.</span>
+          </article>
+
+          <article class="stat-card">
+            <strong>Multi-language</strong>
+            <span>Use the extension in the language you prefer.</span>
+          </article>
+
+          <article class="stat-card">
+            <strong>QR sharing</strong>
+            <span>Share the generated playlist across devices.</span>
+          </article>
+        </div>
+      </section>
+
+      <section id="features" class="section section-alt">
+        <div class="container">
+          <p class="section-kicker">Features</p>
+
+          <h2>Everything the extension does well.</h2>
+
+          <p class="section-description">
+            Designed around the actual workflow inside the popup and content
+            script.
+          </p>
+
+          <div class="feature-grid">
+            <div class="feature-card">
+              <h3>Convert Playlist</h3>
+
+              <p>
+                Generate a playlist from the current YouTube Mix in one click.
+              </p>
+            </div>
+
+            <div class="feature-card">
+              <h3>One-Click Copy</h3>
+
+              <p>Copy the playlist URL immediately after it is created.</p>
+            </div>
+
+            <div class="feature-card">
+              <h3>QR Code</h3>
+
+              <p>
+                Show a QR code so the playlist can be opened on another device.
+              </p>
+            </div>
+
+            <div class="feature-card">
+              <h3>Recent History</h3>
+
+              <p>
+                Review the latest generated playlists without leaving the popup.
+              </p>
+            </div>
+
+            <div class="feature-card">
+              <h3>Themes and Languages</h3>
+
+              <p>
+                Switch between dark, light, and system themes in multiple
+                languages.
+              </p>
+            </div>
+
+            <div class="feature-card">
+              <h3>Optional YouTube Button</h3>
+
+              <p>
+                Show the Convert Playlist button directly on YouTube Mix pages.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="how-it-works" class="section">
+        <div class="container">
+          <p class="section-kicker">How it works</p>
+
+          <h2>Simple flow, no friction.</h2>
+
+          <div class="steps-grid">
+            <article class="step-card">
+              <span>1</span>
+              <h3>Open a YouTube Mix</h3>
+              <p>
+                The extension detects the mix page and prepares the action
+                button.
+              </p>
+            </article>
+
+            <article class="step-card">
+              <span>2</span>
+              <h3>Convert the mix</h3>
+              <p>
+                Click Convert Playlist to build a shareable playlist URL
+                locally.
+              </p>
+            </article>
+
+            <article class="step-card">
+              <span>3</span>
+              <h3>Copy or scan</h3>
+              <p>Use the copy button or QR code to share it instantly.</p>
+            </article>
+
+            <article class="step-card">
+              <span>4</span>
+              <h3>Review history</h3>
+              <p>
+                Return to the recent history list whenever you need an older
+                link.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container privacy-box">
+          <p class="section-kicker">Privacy</p>
+
+          <h2>Your data stays in your browser.</h2>
+
+          <p>
+            No analytics, no tracking, and no external database. Preferences and
+            recent history are stored locally through Chrome Storage.
+          </p>
+
+          <a href="privacy.html" class="button button-primary"
+            >Read Privacy Policy</a
+          >
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container footer">
+        <div class="footer-logo">
+          <img
+            src="./assets/128.png"
+            alt="YouTube Mix Playlist Generator logo"
+          />
+
+          <span>YouTube Mix Playlist Generator</span>
+        </div>
+
+        <div class="footer-links">
+          <a href="privacy.html">Privacy Policy</a>
+
+          <a
+            href="https://github.com/Its-sunny69/Youtube-Mix-to-Playlist-Generator"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GitHub
+          </a>
+
+          <a href="#top">Back to top</a>
+        </div>
+
+        <p>Built for music lovers who want a faster way to share mixes.</p>
+
+        <small>© 2026 All rights reserved · Version 1.0.0</small>
+      </div>
+    </footer>
+  </body>
+</html>
