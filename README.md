@@ -35,7 +35,7 @@ This Chrome extension extracts all videos from the currently opened YouTube Mix 
 
 ## How to Install
 
-1. [Download the ZIP](https://example.com).
+1. [Download the ZIP](https://github.com/Its-sunny69/Youtube-Mix-to-Playlist-Generator/releases/download/v1.0.0/youtube.mix.to.playlist.generator.v1.0.0.zip).
 2. Extract it.
 3. Open Chrome.
 4. Visit `chrome://extensions`.
