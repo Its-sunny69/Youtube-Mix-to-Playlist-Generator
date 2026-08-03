@@ -407,8 +407,15 @@ h3 {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+.install-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
 .feature-card,
 .step-card,
+.install-card,
 .policy-card,
 .privacy-box {
   border-radius: var(--radius);
@@ -416,6 +423,7 @@ h3 {
 
 .feature-card,
 .step-card,
+.install-card,
 .policy-card {
   padding: 28px;
 }
@@ -428,15 +436,61 @@ h3 {
 
 .feature-card p,
 .step-card p,
+.install-card p,
 .policy-card p {
   color: var(--text-secondary);
 }
 
 .feature-card:hover,
 .step-card:hover,
+.install-card:hover,
 .policy-card:hover {
   transform: translateY(-3px);
   border-color: rgba(255, 255, 255, 0.16);
+}
+
+.install-card {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.install-card span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  margin-bottom: 18px;
+  border-radius: 999px;
+  background: rgba(56, 189, 248, 0.14);
+  color: #bfeaff;
+  font-weight: 800;
+}
+
+.install-card h3 a {
+  color: var(--text);
+  transition: color var(--transition);
+}
+
+.install-card h3 a:hover {
+  color: var(--accent);
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
+.install-card-wide {
+  grid-column: 1 / -1;
+}
+
+.install-done {
+  border-color: rgba(225, 29, 72, 0.28);
+  background: linear-gradient(180deg, rgba(225, 29, 72, 0.1), var(--surface));
+}
+
+.install-done span {
+  width: auto;
+  padding: 0 14px;
 }
 
 .steps-grid {
@@ -640,6 +694,7 @@ footer {
   .hero-grid,
   .steps-grid,
   .feature-grid,
+  .install-grid,
   .policy-grid {
     grid-template-columns: 1fr;
   }

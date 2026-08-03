@@ -33,6 +33,20 @@ This Chrome extension extracts all videos from the currently opened YouTube Mix 
 
 ---
 
+## How to Install
+
+1. [Download the ZIP](https://example.com).
+2. Extract it.
+3. Open Chrome.
+4. Visit `chrome://extensions`.
+5. Enable Developer Mode.
+6. Click **Load unpacked**.
+7. Select the extracted extension folder.
+
+Done!
+
+---
+
 ## Technologies Used
 
 - JavaScript (ES6)
