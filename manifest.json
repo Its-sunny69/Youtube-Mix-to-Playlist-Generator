@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "YouTube Mix Playlist Generator",
-  "description": "Generate and copy shareable playlist URLs from YouTube Mix playlists with one click.",
+  "description": "Convert YouTube Mix playlists into shareable YouTube playlists with one click.",
   "version": "1.0.0",
 
   "permissions": ["tabs", "storage"],
