@@ -1,4 +1,6 @@
-# YouTube Mix to Playlist Generator
+# YouTube Mix Playlist Generator
+
+![Popup](assets/banner.png)
 
 Convert YouTube Mix playlists into shareable YouTube playlists with a single click.
 
