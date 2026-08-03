@@ -536,18 +536,18 @@ closeQr.addEventListener("click", () => {
   qrModal.classList.add("hidden");
 });
 
-const rateExtension = document.getElementById("rate-extension");
+// const rateExtension = document.getElementById("rate-extension");
 const githubExtension = document.getElementById("github-extension");
 
-rateExtension.addEventListener("click", () => {
-  chrome.tabs.create({
-    url: "https://www.example.com/",
-  });
-});
+// rateExtension.addEventListener("click", () => {
+//   chrome.tabs.create({
+//     url: "https://www.example.com/",
+//   });
+// });
 
 githubExtension.addEventListener("click", () => {
   chrome.tabs.create({
-    url: "https://www.example.com/",
+    url: "https://github.com/Its-sunny69/Youtube-Mix-to-Playlist-Generator",
   });
 });
 
