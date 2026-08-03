@@ -1,0 +1,58 @@
+{
+  "appName": "YouTube Mix",
+  "appSubtitle": "Playlist Generator",
+
+  "description": "Converta seu YouTube Mix atual em uma playlist compartilhável com apenas um clique.",
+
+  "convertPlaylist": "Converter para Playlist",
+  "generating": "Gerando...",
+  "copyPlaylist": "Copiar link da playlist",
+  "linkCopied": "Link copiado",
+  "copiedAutomatically": "Link copiado automaticamente",
+  "copyFailed": "Falha ao copiar",
+
+  "playlistGenerated": "✓ Playlist gerada",
+  "songs": "Músicas",
+  "playbackTime": "Tempo de reprodução",
+  "viewPlaylist": "Ver playlist",
+  "showQRCode": "Mostrar código QR",
+  "scanToOpenPlaylist": "Escaneie para abrir a playlist",
+  "downloadQR": "Baixar QR",
+
+  "showYoutubeButton": "Mostrar o botão Convert no YouTube",
+  "showYoutubeButtonTooltip": "Ative esta opção para que o botão Convert Playlist apareça diretamente nas páginas do YouTube.",
+  "autoCopyPlaylist": "Copiar automaticamente o link da playlist",
+
+  "history": "Ver histórico recente",
+  "back": "Voltar",
+  "recentHistory": "Histórico recente - Top 5",
+  "clearHistory": "Limpar histórico",
+  "noHistory": "Ainda não há histórico de playlists.",
+  "songsPlaylist": "Playlist de músicas",
+  "view": "Ver",
+  "copy": "Copiar",
+  "copied": "Copiado",
+
+  "settings": "Configurações",
+  "theme": "Tema",
+  "system": "Sistema",
+  "light": "Claro",
+  "dark": "Escuro",
+  "language": "Idioma",
+
+  "playlistExpiry": "Os links da playlist são temporários e podem expirar cerca de 48 horas após a geração.",
+
+  "temporaryLinks": "Os links da playlist são temporários e podem expirar cerca de 48 horas após a geração.",
+
+  "supportTitle": "Está gostando do YouTube Mix Playlist Generator? Avalie a extensão na plataforma abaixo ⭐.",
+
+  "chrome": "Chrome",
+  "github": "GitHub",
+
+  "safeSecure": "Seguro e confiável",
+  "madeInIndia": "Feito na Índia",
+
+  "confirmDeleteHistory": "Isso excluirá permanentemente todo o histórico de playlists salvo.\n\nDeseja continuar?",
+
+  "version": "Versão 1.0"
+}

@@ -1,0 +1,58 @@
+{
+  "appName": "YouTube Mix",
+  "appSubtitle": "Playlist Generator",
+
+  "description": "अपना वर्तमान YouTube Mix के बस एक क्लिक में साझा करे लायक प्लेलिस्ट में बदलीं।",
+
+  "convertPlaylist": "Playlist में बदलीं",
+  "generating": "बनावल जा रहल बा...",
+  "copyPlaylist": "Playlist लिंक कॉपी करीं",
+  "linkCopied": "लिंक कॉपी हो गइल",
+  "copiedAutomatically": "लिंक अपने आप कॉपी हो गइल",
+  "copyFailed": "कॉपी ना हो सकल",
+
+  "playlistGenerated": "✓ Playlist बन गइल",
+  "songs": "गाना",
+  "playbackTime": "कुल समय",
+  "viewPlaylist": "Playlist देखीं",
+  "showQRCode": "QR कोड देखाईं",
+  "scanToOpenPlaylist": "Playlist खोले खातिर स्कैन करीं",
+  "downloadQR": "QR डाउनलोड करीं",
+
+  "showYoutubeButton": "YouTube पर Convert बटन देखाईं",
+  "showYoutubeButtonTooltip": "ई चालू करीं ताकि Convert Playlist बटन सीधे YouTube पेज पर देखाई।",
+  "autoCopyPlaylist": "Playlist लिंक अपने आप कॉपी करीं",
+
+  "history": "हाल के Playlist देखीं",
+  "back": "पाछा",
+  "recentHistory": "हाल के हिस्ट्री - शीर्ष 5",
+  "clearHistory": "हिस्ट्री साफ करीं",
+  "noHistory": "अभी ले कौनो Playlist हिस्ट्री नइखे।",
+  "songsPlaylist": "गाना के Playlist",
+  "view": "देखीं",
+  "copy": "कॉपी",
+  "copied": "कॉपी हो गइल",
+
+  "settings": "सेटिंग्स",
+  "theme": "थीम",
+  "system": "सिस्टम",
+  "light": "हल्का",
+  "dark": "गाढ़ा",
+  "language": "भाषा",
+
+  "playlistExpiry": "Playlist लिंक अस्थायी होला आ बनला के लगभग 48 घंटा बाद समाप्त हो सकेला।",
+
+  "temporaryLinks": "Playlist लिंक अस्थायी होला आ बनला के लगभग 48 घंटा बाद समाप्त हो सकेला।",
+
+  "supportTitle": "अगर रउआ के YouTube Mix Playlist Generator पसंद आइल होखे त नीचे दिहल प्लेटफॉर्म पर रेट जरूर करीं ⭐।",
+
+  "chrome": "Chrome",
+  "github": "GitHub",
+
+  "safeSecure": "सुरक्षित आ भरोसेमंद",
+  "madeInIndia": "भारत में बनावल गइल",
+
+  "confirmDeleteHistory": "एहसे रउआ के सभे सेव कइल Playlist हिस्ट्री हमेशा खातिर मिटा दिहल जाई।\n\nका रउआ आगे बढ़े चाहब?",
+
+  "version": "संस्करण 1.0"
+}

@@ -1,7 +1,31 @@
-console.log("Content Script loaded", Math.random());
-
 let generatedPlaylistUrl = "";
 let isGenerating = false;
+let currentLanguage = "en";
+
+(async () => {
+  const response = await chrome.runtime.sendMessage({
+    type: "GET_LANGUAGE",
+  });
+
+  currentLanguage = response.language;
+
+  await loadLanguage(currentLanguage);
+
+  checkMix();
+})();
+
+chrome.storage.onChanged.addListener(async (changes, area) => {
+  if (area !== "sync" || !changes.popupLanguage) return;
+
+  currentLanguage = changes.popupLanguage.newValue;
+
+  await loadLanguage(currentLanguage);
+
+  removeButton();
+  injectButton();
+
+  document.getElementById("yt-copy-popup")?.remove();
+});
 
 function checkMix() {
   const url = new URL(location.href);
@@ -21,8 +45,6 @@ function checkMix() {
   );
 }
 
-checkMix();
-
 document.addEventListener("yt-navigate-finish", checkMix);
 
 function injectButton() {
@@ -37,10 +59,9 @@ function injectButton() {
 
   const button = document.createElement("button");
   button.id = "yt-mix-generator-btn";
-  button.textContent = "Convert to Playlist";
+  button.textContent = t("convertPlaylist");
 
   button.addEventListener("click", () => {
-    console.log("Page button clicked");
     handleConvert();
   });
 
@@ -52,8 +73,6 @@ function removeButton() {
 }
 
 async function handleConvert() {
-  console.log("handleConvert() called");
-
   if (isGenerating) return;
 
   isGenerating = true;
@@ -64,8 +83,6 @@ async function handleConvert() {
     const result = await generatePlaylist();
 
     generatedPlaylistUrl = result.url;
-
-    console.log(result);
 
     await chrome.runtime.sendMessage({
       type: "SAVE_HISTORY",
@@ -102,7 +119,7 @@ async function showCopyPopup(data) {
     <div class="copy-popup-header">
 
       <div class="copy-popup-title">
-        ✓ Playlist Generated
+        ${t("playlistGenerated")}
       </div>
 
       <button class="copy-popup-close" title="Close">
@@ -118,7 +135,7 @@ async function showCopyPopup(data) {
           <span class="card-details-label">
             <span data-icon="music"></span>
 
-            Songs
+            ${t("songs")}
           </span>
 
           <span>${data.totalSongs}</span>
@@ -128,7 +145,7 @@ async function showCopyPopup(data) {
           <span class="card-details-label">
             <span data-icon="clock"></span>
 
-            Playback
+            ${t("playbackTime")}
           </span>
 
           <span>${data.playbackTime}</span>
@@ -139,13 +156,13 @@ async function showCopyPopup(data) {
         <button class="view-playlist-btn">
           <span data-icon="playFilled"></span>
 
-          View Playlist
+          ${t("viewPlaylist")}
         </button>
 
         <button id="ytm-qr-btn" class="show-qr-btn">
           <span data-icon="qrCode"></span>
 
-          Show QR Code
+          ${t("showQRCode")}
         </button>
       </div>
 
@@ -154,7 +171,7 @@ async function showCopyPopup(data) {
     <button class="copy-popup-btn">
       <img src=${chrome.runtime.getURL("/icons/copy.svg")} class="card-btn-icon"/>
       
-      Copy Playlist URL
+      ${t("copyPlaylist")}
     </button>
 
     <div id="ytm-qr-modal" class="qr-modal hidden">
@@ -168,13 +185,13 @@ async function showCopyPopup(data) {
         <div class="qr-code-container">
           <div id="ytm-qr-container" class="qr-code"></div>
 
-          <p>Scan to open playlist</p>
+          <p>${t("scanToOpenPlaylist")}</p>
         </div>
 
         <button id="ytm-download-qr" class="download-qr-btn">
           <img src=${chrome.runtime.getURL("/icons/download.svg")} class="card-btn-icon"/>
 
-          Download QR
+          ${t("downloadQR")}
         </button>
       </div>
     </div>
@@ -253,7 +270,7 @@ async function showCopyPopup(data) {
 
       button.innerHTML = `
         <img src=${chrome.runtime.getURL("/icons/tick-circle.svg")} class="card-btn-icon"/>
-        Link Copied
+        ${t("linkCopied")}
         `;
       button.disabled = true;
       button.classList.add("copied");
@@ -262,7 +279,7 @@ async function showCopyPopup(data) {
         popup.remove();
       }, 1200);
     } catch {
-      button.textContent = "Copy Failed";
+      button.textContent = t("Copy Failed");
     }
   };
 }
@@ -355,8 +372,6 @@ function getPlaylistStats(playlist) {
     0,
   );
 
-  console.log("Playlist Stats:", { totalSongs, totalSeconds });
-
   return {
     totalSongs,
     totalSeconds,
@@ -379,9 +394,6 @@ function generatePlaylist() {
   const playlist = getVideoIds();
 
   const stats = getPlaylistStats(playlist);
-
-  console.log("Playlist Stats:", stats);
-  console.log("Playback:", formatPlayback(stats.totalSeconds));
 
   const videoIds = playlist.map((video) => video.id);
 
@@ -417,16 +429,12 @@ function setButtonLoading(loading) {
   btn.disabled = loading;
 
   btn.innerHTML = loading
-    ? `<span class="yt-spinner"></span> Generating...`
-    : `Convert to Playlist`;
+    ? `<span class="yt-spinner"></span> ${t("generating")}`
+    : `${t("convertPlaylist")}`;
 }
 
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-  console.log("Message received:", message);
-
   if (message.type === "GENERATE_PLAYLIST") {
-    console.log("Popup requested conversion");
-
     generatePlaylist()
       .then((result) => {
         sendResponse({
@@ -444,8 +452,6 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   }
 
   if (message.type === "TOGGLE_BUTTON") {
-    console.log("Toggle message:", message.enabled);
-
     checkMix();
   }
 });

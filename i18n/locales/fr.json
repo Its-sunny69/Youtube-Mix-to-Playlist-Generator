@@ -1,0 +1,58 @@
+{
+  "appName": "YouTube Mix",
+  "appSubtitle": "Playlist Generator",
+
+  "description": "Convertissez votre YouTube Mix actuel en une playlist partageable en un seul clic.",
+
+  "convertPlaylist": "Convertir en Playlist",
+  "generating": "Génération en cours...",
+  "copyPlaylist": "Copier le lien de la playlist",
+  "linkCopied": "Lien copié",
+  "copiedAutomatically": "Lien copié automatiquement",
+  "copyFailed": "Échec de la copie",
+
+  "playlistGenerated": "✓ Playlist générée",
+  "songs": "Morceaux",
+  "playbackTime": "Durée de lecture",
+  "viewPlaylist": "Voir la playlist",
+  "showQRCode": "Afficher le code QR",
+  "scanToOpenPlaylist": "Scannez pour ouvrir la playlist",
+  "downloadQR": "Télécharger le QR",
+
+  "showYoutubeButton": "Afficher le bouton Convert sur YouTube",
+  "showYoutubeButtonTooltip": "Activez cette option pour afficher le bouton Convert Playlist directement sur les pages YouTube.",
+  "autoCopyPlaylist": "Copier automatiquement le lien de la playlist",
+
+  "history": "Voir l'historique récent",
+  "back": "Retour",
+  "recentHistory": "Historique récent - Top 5",
+  "clearHistory": "Effacer l'historique",
+  "noHistory": "Aucun historique de playlist pour le moment.",
+  "songsPlaylist": "Playlist de morceaux",
+  "view": "Voir",
+  "copy": "Copier",
+  "copied": "Copié",
+
+  "settings": "Paramètres",
+  "theme": "Thème",
+  "system": "Système",
+  "light": "Clair",
+  "dark": "Sombre",
+  "language": "Langue",
+
+  "playlistExpiry": "Les liens de playlist sont temporaires et peuvent expirer 48 heures après leur création.",
+
+  "temporaryLinks": "Les liens de playlist sont temporaires et peuvent expirer 48 heures après leur création.",
+
+  "supportTitle": "Vous aimez YouTube Mix Playlist Generator ? Évaluez l'extension sur la plateforme ci-dessous ⭐.",
+
+  "chrome": "Chrome",
+  "github": "GitHub",
+
+  "safeSecure": "Sûr et sécurisé",
+  "madeInIndia": "Fabriqué en Inde",
+
+  "confirmDeleteHistory": "Cette action supprimera définitivement tout l'historique des playlists enregistrées.\n\nVoulez-vous continuer ?",
+
+  "version": "Version 1.0"
+}

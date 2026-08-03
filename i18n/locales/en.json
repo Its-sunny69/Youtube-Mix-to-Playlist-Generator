@@ -1,0 +1,58 @@
+{
+  "appName": "YouTube Mix",
+  "appSubtitle": "Playlist Generator",
+
+  "description": "Convert your current YouTube Mix into a shareable playlist in one click.",
+
+  "convertPlaylist": "Convert Playlist",
+  "generating": "Generating...",
+  "copyPlaylist": "Copy Playlist URL",
+  "linkCopied": "Link Copied",
+  "copiedAutomatically": "Copied Automatically",
+  "copyFailed": "Copy Failed",
+
+  "playlistGenerated": "Playlist Generated",
+  "songs": "Songs",
+  "playbackTime": "Playback Time",
+  "viewPlaylist": "View Playlist",
+  "showQRCode": "Show QR Code",
+  "scanToOpenPlaylist": "Scan to open playlist",
+  "downloadQR": "Download QR",
+
+  "showYoutubeButton": "Show Convert button on YouTube",
+  "showYoutubeButtonTooltip": "Toggle this on if you want the Convert Playlist button to appear directly on YouTube pages.",
+  "autoCopyPlaylist": "Auto Copy Playlist URL",
+
+  "history": "View Recent History",
+  "back": "Back",
+  "recentHistory": "Recent History - Top 5",
+  "clearHistory": "Clear History",
+  "noHistory": "No playlist history yet.",
+  "songsPlaylist": "Songs Playlist",
+  "view": "View",
+  "copy": "Copy",
+  "copied": "Copied",
+
+  "settings": "Settings",
+  "theme": "Theme",
+  "system": "System",
+  "light": "Light",
+  "dark": "Dark",
+  "language": "Language",
+
+  "playlistExpiry": "The playlist links are temporary and may get expired in 48 hours from the time of generation.",
+
+  "temporaryLinks": "The playlist links are temporary and may get expired in 48 hours from the time of generation.",
+
+  "supportTitle": "Enjoying YouTube Mix Playlist Generator? Rate extension on platform below ⭐.",
+
+  "chrome": "Chrome",
+  "github": "GitHub",
+
+  "safeSecure": "Safe & Secure",
+  "madeInIndia": "Made in India",
+
+  "confirmDeleteHistory": "This will permanently delete all saved playlist history.\n\nContinue?",
+
+  "version": "Version 1.0"
+}

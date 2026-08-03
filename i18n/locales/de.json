@@ -1,0 +1,58 @@
+{
+  "appName": "YouTube Mix",
+  "appSubtitle": "Playlist Generator",
+
+  "description": "Wandle deinen aktuellen YouTube Mix mit nur einem Klick in eine teilbare Playlist um.",
+
+  "convertPlaylist": "In Playlist umwandeln",
+  "generating": "Wird erstellt...",
+  "copyPlaylist": "Playlist-Link kopieren",
+  "linkCopied": "Link kopiert",
+  "copiedAutomatically": "Link automatisch kopiert",
+  "copyFailed": "Kopieren fehlgeschlagen",
+
+  "playlistGenerated": "✓ Playlist erstellt",
+  "songs": "Songs",
+  "playbackTime": "Wiedergabezeit",
+  "viewPlaylist": "Playlist ansehen",
+  "showQRCode": "QR-Code anzeigen",
+  "scanToOpenPlaylist": "Scannen, um die Playlist zu öffnen",
+  "downloadQR": "QR herunterladen",
+
+  "showYoutubeButton": "Convert-Schaltfläche auf YouTube anzeigen",
+  "showYoutubeButtonTooltip": "Aktiviere diese Option, damit die Schaltfläche „Convert Playlist“ direkt auf YouTube-Seiten angezeigt wird.",
+  "autoCopyPlaylist": "Playlist-Link automatisch kopieren",
+
+  "history": "Letzten Verlauf anzeigen",
+  "back": "Zurück",
+  "recentHistory": "Letzter Verlauf - Top 5",
+  "clearHistory": "Verlauf löschen",
+  "noHistory": "Noch kein Playlist-Verlauf vorhanden.",
+  "songsPlaylist": "Song-Playlist",
+  "view": "Ansehen",
+  "copy": "Kopieren",
+  "copied": "Kopiert",
+
+  "settings": "Einstellungen",
+  "theme": "Design",
+  "system": "System",
+  "light": "Hell",
+  "dark": "Dunkel",
+  "language": "Sprache",
+
+  "playlistExpiry": "Playlist-Links sind temporär und können etwa 48 Stunden nach der Erstellung ablaufen.",
+
+  "temporaryLinks": "Playlist-Links sind temporär und können etwa 48 Stunden nach der Erstellung ablaufen.",
+
+  "supportTitle": "Gefällt dir YouTube Mix Playlist Generator? Bewerte die Erweiterung auf der untenstehenden Plattform ⭐.",
+
+  "chrome": "Chrome",
+  "github": "GitHub",
+
+  "safeSecure": "Sicher & geschützt",
+  "madeInIndia": "Hergestellt in Indien",
+
+  "confirmDeleteHistory": "Dadurch wird der gesamte gespeicherte Playlist-Verlauf dauerhaft gelöscht.\n\nMöchtest du fortfahren?",
+
+  "version": "Version 1.0"
+}

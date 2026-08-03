@@ -804,7 +804,8 @@ body {
   color: var(--icon-color);
 }
 
-.theme-options {
+.theme-options,
+.language-options {
   display: flex;
   flex-direction: column;
   margin-top: 8px;
@@ -812,7 +813,8 @@ body {
   gap: 6px;
 }
 
-.theme-option {
+.theme-option,
+.language-option {
   padding: 10px 14px;
   border: none;
   border-radius: 8px;
@@ -823,11 +825,13 @@ body {
   transition: 0.2s;
 }
 
-.theme-option:hover {
+.theme-option:hover,
+.language-option:hover {
   background: var(--surface-light);
 }
 
-.theme-option.selected {
+.theme-option.selected,
+.language-option.selected {
   background-color: var(--selected-option-bg);
 }
 
@@ -846,8 +850,10 @@ body {
 }
 
 .footer div {
+  width: 50%;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
   color: var(--text-secondary);
   font-size: 13px;
@@ -867,5 +873,3 @@ body {
   font-size: 12px;
   margin-top: 22px;
 }
-
-/* fix icon colors for light theme.... also if possible make the var names of theme releted to content, not primary or secondary something... */

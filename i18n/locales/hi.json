@@ -1,0 +1,58 @@
+{
+  "appName": "YouTube Mix",
+  "appSubtitle": "Playlist Generator",
+
+  "description": "अपने वर्तमान YouTube Mix को एक क्लिक में साझा करने योग्य प्लेलिस्ट में बदलें।",
+
+  "convertPlaylist": "प्लेलिस्ट में बदलें",
+  "generating": "बनाया जा रहा है...",
+  "copyPlaylist": "प्लेलिस्ट लिंक कॉपी करें",
+  "linkCopied": "लिंक कॉपी हो गया",
+  "copiedAutomatically": "लिंक अपने आप कॉपी हो गया",
+  "copyFailed": "कॉपी नहीं हो सकी",
+
+  "playlistGenerated": "✓ प्लेलिस्ट तैयार हो गई",
+  "songs": "गाने",
+  "playbackTime": "कुल समय",
+  "viewPlaylist": "प्लेलिस्ट देखें",
+  "showQRCode": "QR कोड दिखाएँ",
+  "scanToOpenPlaylist": "प्लेलिस्ट खोलने के लिए स्कैन करें",
+  "downloadQR": "QR डाउनलोड करें",
+
+  "showYoutubeButton": "YouTube पर Convert बटन दिखाएँ",
+  "showYoutubeButtonTooltip": "इसे चालू करें ताकि Convert Playlist बटन सीधे YouTube पेज पर दिखाई दे।",
+  "autoCopyPlaylist": "प्लेलिस्ट लिंक अपने आप कॉपी करें",
+
+  "history": "हाल ही की प्लेलिस्ट देखें",
+  "back": "वापस",
+  "recentHistory": "हाल ही की प्लेलिस्ट - शीर्ष 5",
+  "clearHistory": "इतिहास साफ़ करें",
+  "noHistory": "अभी तक कोई प्लेलिस्ट इतिहास नहीं है।",
+  "songsPlaylist": "गानों की प्लेलिस्ट",
+  "view": "देखें",
+  "copy": "कॉपी",
+  "copied": "कॉपी हो गया",
+
+  "settings": "सेटिंग्स",
+  "theme": "थीम",
+  "system": "सिस्टम",
+  "light": "लाइट",
+  "dark": "डार्क",
+  "language": "भाषा",
+
+  "playlistExpiry": "प्लेलिस्ट लिंक अस्थायी होते हैं और बनने के लगभग 48 घंटे बाद समाप्त हो सकते हैं।",
+
+  "temporaryLinks": "प्लेलिस्ट लिंक अस्थायी होते हैं और बनने के लगभग 48 घंटे बाद समाप्त हो सकते हैं।",
+
+  "supportTitle": "अगर आपको YouTube Mix Playlist Generator पसंद आया हो, तो नीचे दिए गए प्लेटफ़ॉर्म पर हमें रेट करें ⭐।",
+
+  "chrome": "Chrome",
+  "github": "GitHub",
+
+  "safeSecure": "सुरक्षित और भरोसेमंद",
+  "madeInIndia": "भारत में निर्मित",
+
+  "confirmDeleteHistory": "इससे आपकी सभी सहेजी गई प्लेलिस्ट हिस्ट्री हमेशा के लिए हट जाएगी।\n\nक्या आप जारी रखना चाहते हैं?",
+
+  "version": "संस्करण 1.0"
+}

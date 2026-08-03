@@ -1,5 +1,4 @@
-console.log("Popup loaded");
-
+import { loadLanguage, t, translatePage } from "../i18n/index.js";
 import { Icons } from "../icons/index.js";
 
 let generatedPlaylistUrl = "";
@@ -13,21 +12,25 @@ document.addEventListener("DOMContentLoaded", async () => {
     showYoutubeButton = true,
     autoCopyPlaylist = false,
     popupTheme = "system",
+    popupLanguage = "en",
   } = await chrome.storage.sync.get([
     "showYoutubeButton",
     "autoCopyPlaylist",
     "popupTheme",
+    "popupLanguage",
   ]);
 
   toggle.checked = showYoutubeButton;
   autoCopyToggle.checked = autoCopyPlaylist;
 
   applyTheme(popupTheme);
+
+  await loadLanguage(popupLanguage);
+
+  updateLanguageSelection(popupLanguage);
 });
 
 toggle.addEventListener("change", async () => {
-  console.log("Toggle changed:", toggle.checked);
-
   await chrome.storage.sync.set({
     showYoutubeButton: toggle.checked,
   });
@@ -36,8 +39,6 @@ toggle.addEventListener("change", async () => {
     active: true,
     currentWindow: true,
   });
-
-  console.log("Sending toggle message");
 
   chrome.tabs.sendMessage(tab.id, {
     type: "TOGGLE_BUTTON",
@@ -54,15 +55,9 @@ autoCopyToggle.addEventListener("change", async () => {
 const convertBtn = document.getElementById("convert-btn");
 
 convertBtn.addEventListener("click", async () => {
-  // Copy State
   if (popupState === "copy") {
-    console.log("Copy button clicked");
-    console.log("URL:", generatedPlaylistUrl);
-
     try {
       await navigator.clipboard.writeText(generatedPlaylistUrl);
-
-      console.log("Copied successfully");
 
       popupState = "copied";
 
@@ -71,8 +66,10 @@ convertBtn.addEventListener("click", async () => {
       convertBtn.className = "btn-success";
       convertBtn.innerHTML = `
             <img src="../icons/tick-circle.svg">
-            Link Copied
+            <span data-i18n="linkCopied">Link Copied</span>
         `;
+
+      translatePage(convertBtn);
 
       setTimeout(() => {
         popupState = "generate";
@@ -83,8 +80,10 @@ convertBtn.addEventListener("click", async () => {
         convertBtn.className = "action-btn btn-generate";
         convertBtn.innerHTML = `
         <img src="../icons/play.svg">
-        Convert Playlist
+        <span data-i18n="convertPlaylist">Convert Playlist</span>
     `;
+
+        translatePage(convertBtn);
 
         showDescription();
       }, 1500);
@@ -104,8 +103,10 @@ convertBtn.addEventListener("click", async () => {
   convertBtn.className = "btn-loading";
   convertBtn.innerHTML = `
     <img src="../icons/loader-circle.svg" class="spin">
-    Generating...
+    <span data-i18n="generating">Generating...</span>
 `;
+
+  translatePage(convertBtn);
 
   const [tab] = await chrome.tabs.query({
     active: true,
@@ -126,8 +127,10 @@ convertBtn.addEventListener("click", async () => {
         convertBtn.className = "action-btn btn-generate";
         convertBtn.innerHTML = `
                     <img src="../icons/play.svg">
-                    Convert Playlist
+                    <span data-i18n="convertPlaylist">Convert Playlist</span>
                 `;
+
+        translatePage(convertBtn);
 
         return;
       }
@@ -135,7 +138,8 @@ convertBtn.addEventListener("click", async () => {
       await chrome.runtime.sendMessage({
         type: "SAVE_HISTORY",
         data: {
-          title: response.title || `${response.totalSongs} Songs Playlist`,
+          title:
+            response.title || `${response.totalSongs} ${t("songsPlaylist")}`,
           url: response.url,
           totalSongs: response.totalSongs,
           playbackTime: response.playbackTime,
@@ -144,7 +148,6 @@ convertBtn.addEventListener("click", async () => {
       });
 
       generatedPlaylistUrl = response.url;
-      console.log(response);
       showDetails(response);
 
       const { autoCopyPlaylist = false } =
@@ -160,8 +163,10 @@ convertBtn.addEventListener("click", async () => {
         convertBtn.className = "btn-success";
         convertBtn.innerHTML = `
         <img src="../icons/tick-circle.svg">
-        Copied Automatically
+        <span data-i18n="copiedAutomatically">Copied Automatically</span>
     `;
+
+        translatePage(convertBtn);
 
         setTimeout(() => {
           popupState = "generate";
@@ -172,8 +177,10 @@ convertBtn.addEventListener("click", async () => {
           convertBtn.className = "action-btn btn-generate";
           convertBtn.innerHTML = `
             <img src="../icons/play.svg">
-            Convert Playlist
+            <span data-i18n="convertPlaylist">Convert Playlist</span>
         `;
+
+          translatePage(convertBtn);
 
           showDescription();
         }, 4000);
@@ -188,8 +195,10 @@ convertBtn.addEventListener("click", async () => {
       convertBtn.className = "btn-copy";
       convertBtn.innerHTML = `
                 <img src="../icons/copy.svg">
-                Copy Playlist URL
+                <span data-i18n="copyPlaylist">Copy Playlist URL</span>
             `;
+
+      translatePage(convertBtn);
     },
   );
 });
@@ -245,9 +254,7 @@ backHistory.addEventListener("click", () => {
 });
 
 clearHistoryBtn.addEventListener("click", async () => {
-  const confirmed = confirm(
-    "This will permanently delete all saved playlist history.\n\nContinue?",
-  );
+  const confirmed = confirm(t("confirmDeleteHistory"));
 
   if (!confirmed) return;
 
@@ -272,9 +279,11 @@ function renderHistory(history) {
   if (!history.length) {
     historyList.innerHTML = `
             <div class="history-empty">
-                No playlist history yet.
+                <span data-i18n="noHistory">No playlist history yet.</span>
             </div>
         `;
+
+    translatePage(historyList);
     return;
   }
 
@@ -287,7 +296,7 @@ function renderHistory(history) {
           </div>
 
           <div class="history-meta">
-            ${item.totalSongs} Songs • ${item.playbackTime}
+            ${item.totalSongs} <span data-i18n="songs">Songs</span> • ${item.playbackTime}
           </div>
 
           <div class="history-timestamp">
@@ -300,19 +309,21 @@ function renderHistory(history) {
             <button class="history-copy" data-url="${item.url}">
               <span data-icon="copyFilled"></span>
 
-              <span class="history-copy-text">Copy</span>
+              <span class="history-copy-text" data-i18n="copy">Copy</span>
             </button>
 
             <button class="history-view" data-url="${item.url}">
               <span data-icon="playFilled2"></span>
 
-              <span>View</span>
+              <span data-i18n="view">View</span>
             </button>
           </div>
         </div>
     `,
     )
     .join("");
+
+  translatePage(historyList);
 
   renderIcons(historyList);
 
@@ -325,17 +336,16 @@ function bindHistoryActions() {
       try {
         await navigator.clipboard.writeText(btn.dataset.url);
 
-        // Prevent multiple timers if clicked repeatedly
         if (btn.dataset.timeoutId) {
           clearTimeout(Number(btn.dataset.timeoutId));
         }
 
         btn.classList.add("copied");
-        btn.querySelector(".history-copy-text").textContent = "Copied";
+        btn.querySelector(".history-copy-text").textContent = t("copied");
 
         const timeoutId = setTimeout(() => {
           btn.classList.remove("copied");
-          btn.querySelector(".history-copy-text").textContent = "Copy";
+          btn.querySelector(".history-copy-text").textContent = t("copy");
           delete btn.dataset.timeoutId;
         }, 1500);
 
@@ -399,10 +409,6 @@ const themeArrow = document.getElementById("theme-arrow");
 
 themeBtn.addEventListener("click", () => {
   themeOptions.classList.toggle("hidden");
-
-  // themeArrow.textContent = themeOptions.classList.contains("hidden")
-  //   ? "▼"
-  //   : "▲";
 });
 
 function updateThemeSelection(selectedTheme) {
@@ -453,6 +459,37 @@ function applyTheme(theme) {
 
   updateThemeSelection(theme);
 }
+
+const languageBtn = document.getElementById("language-btn");
+const languageOptions = document.getElementById("language-options");
+
+languageBtn.addEventListener("click", () => {
+  languageOptions.classList.toggle("hidden");
+});
+
+function updateLanguageSelection(selectedLanguage) {
+  document.querySelectorAll(".language-option").forEach((option) => {
+    const selected = option.dataset.language === selectedLanguage;
+
+    option.querySelector(".language-check").textContent = selected ? "✓" : "";
+
+    option.classList.toggle("selected", selected);
+  });
+}
+
+document.querySelectorAll(".language-option").forEach((option) => {
+  option.addEventListener("click", async () => {
+    const language = option.dataset.language;
+
+    await chrome.storage.sync.set({
+      popupLanguage: language,
+    });
+
+    await loadLanguage(language);
+
+    updateLanguageSelection(language);
+  });
+});
 
 const qrBtn = document.getElementById("qr-btn");
 const qrModal = document.getElementById("qr-modal");

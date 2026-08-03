@@ -1,5 +1,3 @@
-console.log("Background Started");
-
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   if (message.type !== "CONVERT_MIX") return;
 
@@ -70,6 +68,26 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
         await clearHistory();
         sendResponse({ success: true });
         break;
+    }
+  })();
+
+  return true;
+});
+
+chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+  (async () => {
+    switch (message.type) {
+      case "GET_LANGUAGE": {
+        const { popupLanguage = "en" } =
+          await chrome.storage.sync.get("popupLanguage");
+
+        sendResponse({
+          success: true,
+          language: popupLanguage,
+        });
+
+        break;
+      }
     }
   })();
 

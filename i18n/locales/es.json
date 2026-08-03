@@ -1,0 +1,58 @@
+{
+  "appName": "YouTube Mix",
+  "appSubtitle": "Playlist Generator",
+
+  "description": "Convierte tu YouTube Mix actual en una lista de reproducción compartible con un solo clic.",
+
+  "convertPlaylist": "Convertir a Playlist",
+  "generating": "Generando...",
+  "copyPlaylist": "Copiar enlace de la playlist",
+  "linkCopied": "Enlace copiado",
+  "copiedAutomatically": "Enlace copiado automáticamente",
+  "copyFailed": "No se pudo copiar",
+
+  "playlistGenerated": "✓ Playlist creada",
+  "songs": "Canciones",
+  "playbackTime": "Tiempo de reproducción",
+  "viewPlaylist": "Ver playlist",
+  "showQRCode": "Mostrar código QR",
+  "scanToOpenPlaylist": "Escanea para abrir la playlist",
+  "downloadQR": "Descargar QR",
+
+  "showYoutubeButton": "Mostrar el botón Convert en YouTube",
+  "showYoutubeButtonTooltip": "Activa esta opción para que el botón Convert Playlist aparezca directamente en las páginas de YouTube.",
+  "autoCopyPlaylist": "Copiar automáticamente el enlace de la playlist",
+
+  "history": "Ver historial reciente",
+  "back": "Atrás",
+  "recentHistory": "Historial reciente - Top 5",
+  "clearHistory": "Borrar historial",
+  "noHistory": "Todavía no hay historial de playlists.",
+  "songsPlaylist": "Playlist de canciones",
+  "view": "Ver",
+  "copy": "Copiar",
+  "copied": "Copiado",
+
+  "settings": "Configuración",
+  "theme": "Tema",
+  "system": "Sistema",
+  "light": "Claro",
+  "dark": "Oscuro",
+  "language": "Idioma",
+
+  "playlistExpiry": "Los enlaces de la playlist son temporales y pueden expirar 48 horas después de su creación.",
+
+  "temporaryLinks": "Los enlaces de la playlist son temporales y pueden expirar 48 horas después de su creación.",
+
+  "supportTitle": "¿Te gusta YouTube Mix Playlist Generator? Califícanos en la siguiente plataforma ⭐.",
+
+  "chrome": "Chrome",
+  "github": "GitHub",
+
+  "safeSecure": "Seguro y protegido",
+  "madeInIndia": "Hecho en India",
+
+  "confirmDeleteHistory": "Esto eliminará permanentemente todo el historial de playlists guardado.\n\n¿Deseas continuar?",
+
+  "version": "Versión 1.0"
+}

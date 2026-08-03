@@ -50,6 +50,7 @@
   padding: 18px;
   border-radius: 12px;
   z-index: 999999;
+  font-family: "Inter", monospace;
 }
 
 #yt-mix-popup button {
@@ -195,6 +196,7 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
+  font-family: "Inter", monospace;
 }
 
 .view-playlist-btn:hover {
@@ -215,6 +217,7 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
+  font-family: "Inter", monospace;
 }
 
 .show-qr-btn:hover {
@@ -244,6 +247,7 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
+  font-family: "Inter", monospace;
 }
 
 .copy-popup-btn:hover {
@@ -317,10 +321,9 @@
   font-weight: 500;
   color: #ffffff;
   gap: 8px;
+  font-family: "Inter", monospace;
 }
 
 .download-qr-btn:hover {
   opacity: 0.8;
 }
-
-/* change icons color of view and qr.... */

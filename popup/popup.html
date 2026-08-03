@@ -13,8 +13,8 @@
           <div class="header-title">
             <img src="../icons/64.png" />
             <div class="header-content">
-              <h1>YouTube Mix</h1>
-              <p>Playlist Generator</p>
+              <h1 data-i18n="appName">YouTube Mix</h1>
+              <p data-i18n="appSubtitle">Playlist Generator</p>
             </div>
           </div>
 
@@ -28,10 +28,9 @@
         <div class="popup-body">
           <div id="description-view" class="popup-view active">
             <div class="description-card">
-              <!-- <img src="../icons/sparkler.svg" class="card-icon" /> -->
-               <span data-icon="sparkler"></span>
+              <span data-icon="sparkler"></span>
 
-              <p class="description">
+              <p class="description" data-i18n="description">
                 Convert your current YouTube Mix into a shareable playlist in
                 one click.
               </p>
@@ -40,34 +39,35 @@
 
           <div id="details-view" class="popup-view">
             <div class="playlist-card">
-              <div class="playlist-status">✓ Playlist Generated</div>
+              <div class="playlist-status">
+                <span data-i18n="playlistGenerated">✓ Playlist Generated</span>
+              </div>
 
               <div class="playlist-stats">
                 <span class="stats-label">
-                  <span data-icon="music"></span> Songs
+                  <span data-icon="music"></span>
+                  <span data-i18n="songs">Songs</span>
                 </span>
                 <span id="songs-count">0</span>
               </div>
 
               <div class="playlist-stats">
                 <span class="stats-label">
-                  <span data-icon="clock"></span> Playback
-                  Time
+                  <span data-icon="clock"></span>
+                  <span data-i18n="playbackTime">Playback Time</span>
                 </span>
                 <span id="playback-time">0 min</span>
               </div>
 
               <div class="playlist-actions">
                 <button id="view-playlist-btn" class="view-playlist-btn">
-                  <!-- <img src="../icons/play-filled.svg" class="stats-action-icon" /> -->
                   <span data-icon="playFilled"></span>
-                  View Playlist
+                  <span data-i18n="viewPlaylist">View Playlist</span>
                 </button>
 
                 <button id="qr-btn" class="show-qr-btn">
-                  <!-- <img src="../icons/qr-code.svg" class="stats-action-icon" /> -->
                   <span data-icon="qrCode"></span>
-                  Show QR Code
+                  <span data-i18n="showQRCode">Show QR Code</span>
                 </button>
               </div>
             </div>
@@ -77,21 +77,24 @@
         <button id="convert-btn" class="btn-generate">
           <img id="btn-icon" src="../icons/play.svg" />
 
-          <span id="btn-text">Convert Playlist</span>
+          <span id="btn-text" data-i18n="convertPlaylist"
+            >Convert Playlist</span
+          >
         </button>
 
         <div class="setting">
           <div class="option">
             <label>
               <input type="checkbox" id="show-youtube-btn" />
-              <span>Show Convert button on YouTube</span>
+              <span data-i18n="showYoutubeButton"
+                >Show Convert button on YouTube</span
+              >
             </label>
 
             <div class="info-wrapper">
-              <!-- <img src="../icons/info-circle.svg" class="info-icon" /> -->
               <span data-icon="infoCircle"></span>
 
-              <div class="tooltip">
+              <div class="tooltip" data-i18n="showYoutubeButtonTooltip">
                 Toggle this on if you want the Convert Playlist button to appear
                 directly on YouTube Mix pages.
               </div>
@@ -101,7 +104,7 @@
           <div class="option">
             <label class="toggle-row">
               <input type="checkbox" id="auto-copy-toggle" />
-              <span>Auto Copy Playlist URL</span>
+              <span data-i18n="autoCopyPlaylist">Auto Copy Playlist URL</span>
             </label>
           </div>
         </div>
@@ -109,7 +112,7 @@
         <button id="history-btn" class="history-btn">
           <img class="history-btn-icon" src="../icons/list.svg" />
 
-          <span>View Recent History</span>
+          <span data-i18n="history">View Recent History</span>
         </button>
 
         <div class="important-description">
@@ -117,55 +120,57 @@
             src="../icons/important-info-circle.svg"
             class="important-description-icon"
           />
-          <p>
+          <p data-i18n="playlistExpiry">
             The playlist links are temporary and may get expired in 48 hours
             from the time of generation.
           </p>
         </div>
 
         <div class="feedback">
-          <p class="support-title">
-            Enjoying YouTube Mix Playlist Generator? Rate extension on platform below
-            ⭐.
+          <p class="support-title" data-i18n="supportTitle">
+            Enjoying YouTube Mix Playlist Generator? Rate extension on platform
+            below ⭐.
           </p>
 
           <div class="support-links">
             <button id="rate-extension" class="support-btn">
               <span data-icon="chrome"></span>
-              Chrome
+
+              <span data-i18n="chrome">Chrome</span>
             </button>
 
             <button id="github-extension" class="support-btn">
               <span data-icon="github"></span>
-              GitHub
+
+              <span data-i18n="github">GitHub</span>
             </button>
           </div>
         </div>
 
         <div class="footer">
           <div>
-            <!-- <img src="../icons/shield-tick.svg" /> -->
             <span data-icon="shieldTick"></span>
 
-            <span>Safe & Secure</span>
+            <span data-i18n="safeSecure">Safe & Secure</span>
           </div>
 
           <div>
-            <!-- <img src="../icons/heart.svg" /> -->
             <span data-icon="heart"></span>
-            
-            <span>Made for Music Lovers</span>
+
+            <span data-i18n="madeInIndia">Made in India</span>
           </div>
         </div>
 
-        <p class="version">Version 1.0</p>
+        <p class="version" data-i18n="version">Version 1.0</p>
       </div>
 
       <div id="history-view" class="view">
         <div class="history-header">
-          <button id="back-history" class="back-btn">← Back</button>
+          <button id="back-history" class="back-btn">
+            ← <span data-i18n="back">Back</span>
+          </button>
 
-          <h2>Recent History</h2>
+          <h2 data-i18n="recentHistory">Recent History - Top 5</h2>
         </div>
 
         <div class="important-description">
@@ -173,7 +178,7 @@
             src="../icons/important-info-circle.svg"
             class="important-description-icon"
           />
-          <p>
+          <p data-i18n="playlistExpiry">
             The playlist links are temporary and may get expired in 48 hours
             from the time of generation.
           </p>
@@ -184,56 +189,105 @@
         <button class="clear-history-btn" id="clear-history">
           <img src="../icons/delete.svg" class="history-btn-icon" />
 
-          <span>Clear History</span>
+          <span data-i18n="clearHistory">Clear History</span>
         </button>
       </div>
 
       <div id="settings-view" class="view">
         <div class="settings-header">
-          <button id="back-settings" class="back-btn">← Back</button>
+          <button id="back-settings" class="back-btn">
+            ← <span data-i18n="back">Back</span>
+          </button>
 
-          <h2>Settings</h2>
+          <h2 data-i18n="settings">Settings</h2>
         </div>
 
         <div class="settings-list">
           <div class="settings-group">
             <button class="settings-item" id="theme-btn">
               <span class="setting-label">
-                <!-- <img src="../icons/theme.svg" class="settings-icon" /> -->
                 <span data-icon="theme"></span>
 
-                Theme
+                <span data-i18n="theme">Theme</span>
               </span>
               <span id="theme-arrow">›</span>
             </button>
 
             <div id="theme-options" class="theme-options hidden">
               <button class="theme-option" data-theme="system">
-                <span>System</span>
+                <span data-i18n="system">System</span>
                 <span class="theme-check"></span>
               </button>
 
               <button class="theme-option" data-theme="light">
-                <span>Light</span>
+                <span data-i18n="light">Light</span>
                 <span class="theme-check"></span>
               </button>
 
               <button class="theme-option" data-theme="dark">
-                <span>Dark</span>
+                <span data-i18n="dark">Dark</span>
                 <span class="theme-check"></span>
               </button>
             </div>
           </div>
 
-          <button class="settings-item" id="language-btn">
-            <span class="setting-label">
-              <!-- <img src="../icons/language.svg" class="settings-icon" /> -->
-              <span data-icon="language"></span>
-              
-              Language
-            </span>
-            <span>›</span>
-          </button>
+          <div class="settings-group">
+            <button class="settings-item" id="language-btn">
+              <span class="setting-label">
+                <span data-icon="language"></span>
+
+                <span data-i18n="language">Language</span>
+              </span>
+              <span>›</span>
+            </button>
+
+            <div id="language-options" class="theme-options hidden">
+              <button class="language-option" data-language="en">
+                <span>English</span>
+                <span class="language-check"></span>
+              </button>
+
+              <button class="language-option" data-language="hi">
+                <span>हिन्दी</span>
+                <span class="language-check"></span>
+              </button>
+
+              <button class="language-option" data-language="hinglish">
+                <span>Hinglish</span>
+                <span class="language-check"></span>
+              </button>
+
+              <button class="language-option" data-language="bho">
+                <span>भोजपुरी</span>
+                <span class="language-check"></span>
+              </button>
+
+              <button class="language-option" data-language="ja">
+                <span>日本語</span>
+                <span class="language-check"></span>
+              </button>
+
+              <button class="language-option" data-language="es">
+                <span>Español</span>
+                <span class="language-check"></span>
+              </button>
+
+              <button class="language-option" data-language="fr">
+                <span>Français</span>
+                <span class="language-check"></span>
+              </button>
+
+              <button class="language-option" data-language="de">
+                <span>Deutsch</span>
+                <span class="language-check"></span>
+              </button>
+
+              <button class="language-option" data-language="pt">
+                <span>Português (Brasil)</span>
+                <span class="language-check"></span>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -246,13 +300,14 @@
           <div class="qr-code-container">
             <div id="qr-container"></div>
 
-            <p>Scan to open playlist</p>
+            <p data-i18n="scanToOpenPlaylist">Scan to open playlist</p>
           </div>
 
           <div class="qr-actions">
             <button id="download-qr" class="download-qr-btn">
               <img src="../icons/download.svg" class="download-qr-btn-icon" />
-              Download QR
+
+              <span data-i18n="downloadQR">Download QR</span>
             </button>
           </div>
         </div>

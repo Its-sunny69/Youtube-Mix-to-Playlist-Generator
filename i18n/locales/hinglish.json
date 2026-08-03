@@ -1,0 +1,58 @@
+{
+  "appName": "YouTube Mix",
+  "appSubtitle": "Playlist Generator",
+
+  "description": "Apne current YouTube Mix ko sirf ek click mein shareable playlist mein convert karein.",
+
+  "convertPlaylist": "Playlist Mein Convert Karein",
+  "generating": "Generate ho raha hai...",
+  "copyPlaylist": "Playlist Link Copy Karein",
+  "linkCopied": "Link Copy Ho Gaya",
+  "copiedAutomatically": "Link Automatically Copy Ho Gaya",
+  "copyFailed": "Copy Nahi Ho Saka",
+
+  "playlistGenerated": "✓ Playlist Ready Hai",
+  "songs": "Songs",
+  "playbackTime": "Playback Time",
+  "viewPlaylist": "Playlist Dekhein",
+  "showQRCode": "QR Code Dikhayein",
+  "scanToOpenPlaylist": "Playlist kholne ke liye Scan Karein",
+  "downloadQR": "QR Download Karein",
+
+  "showYoutubeButton": "YouTube par Convert Button Dikhayein",
+  "showYoutubeButtonTooltip": "Is option ko ON karein taaki Convert Playlist button directly YouTube page par dikhe.",
+  "autoCopyPlaylist": "Playlist Link Automatically Copy Karein",
+
+  "history": "Recent Playlist Dekhein",
+  "back": "Back",
+  "recentHistory": "Recent History - Top 5",
+  "clearHistory": "History Clear Karein",
+  "noHistory": "Abhi tak koi Playlist History nahi hai.",
+  "songsPlaylist": "Songs Playlist",
+  "view": "Dekhein",
+  "copy": "Copy",
+  "copied": "Copy Ho Gaya",
+
+  "settings": "Settings",
+  "theme": "Theme",
+  "system": "System",
+  "light": "Light",
+  "dark": "Dark",
+  "language": "Language",
+
+  "playlistExpiry": "Playlist links temporary hote hain aur generate hone ke lagbhag 48 ghante baad expire ho sakte hain.",
+
+  "temporaryLinks": "Playlist links temporary hote hain aur generate hone ke lagbhag 48 ghante baad expire ho sakte hain.",
+
+  "supportTitle": "Agar aapko YouTube Mix Playlist Generator pasand aaya ho to neeche diye gaye platform par rating zarur dein ⭐.",
+
+  "chrome": "Chrome",
+  "github": "GitHub",
+
+  "safeSecure": "Safe & Secure",
+  "madeInIndia": "Made in India",
+
+  "confirmDeleteHistory": "Isse aapki saari saved Playlist History permanently delete ho jayegi.\n\nKya aap continue karna chahte hain?",
+
+  "version": "Version 1.0"
+}

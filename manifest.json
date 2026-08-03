@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "YouTube Mix to Playlist Generator",
+  "name": "YouTube Mix Playlist Generator",
   "description": "Generate and copy shareable playlist URLs from YouTube Mix playlists with one click.",
   "version": "1.0.0",
 
@@ -15,20 +15,25 @@
   "content_scripts": [
     {
       "matches": ["https://www.youtube.com/*"],
-      "js": ["lib/qrcode.min.js", "content/icon.js", "content/content.js"],
+      "js": [
+        "lib/qrcode.min.js",
+        "content/icon.js",
+        "i18n/translate.js",
+        "content/content.js"
+      ],
       "css": ["content/styles.css"],
       "run_at": "document_idle"
     }
   ],
 
   "action": {
-    "default_title": "YouTube Mix to Playlist Generator",
+    "default_title": "YouTube Mix Playlist Generator",
     "default_popup": "popup/popup.html"
   },
 
   "web_accessible_resources": [
     {
-      "resources": ["icons/*"],
+      "resources": ["icons/*", "i18n/locales/*.json"],
       "matches": ["<all_urls>"]
     }
   ],

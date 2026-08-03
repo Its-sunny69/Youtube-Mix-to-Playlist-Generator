@@ -1,0 +1,58 @@
+{
+  "appName": "YouTube Mix",
+  "appSubtitle": "Playlist Generator",
+
+  "description": "現在の YouTube Mix をワンクリックで共有可能なプレイリストに変換します。",
+
+  "convertPlaylist": "プレイリストに変換",
+  "generating": "生成中...",
+  "copyPlaylist": "プレイリストのリンクをコピー",
+  "linkCopied": "リンクをコピーしました",
+  "copiedAutomatically": "リンクを自動でコピーしました",
+  "copyFailed": "コピーできませんでした",
+
+  "playlistGenerated": "プレイリストを作成しました",
+  "songs": "曲",
+  "playbackTime": "再生時間",
+  "viewPlaylist": "プレイリストを見る",
+  "showQRCode": "QRコードを表示",
+  "scanToOpenPlaylist": "スキャンしてプレイリストを開く",
+  "downloadQR": "QRコードをダウンロード",
+
+  "showYoutubeButton": "YouTube に Convert ボタンを表示",
+  "showYoutubeButtonTooltip": "これを有効にすると、Convert Playlist ボタンが YouTube ページに表示されます。",
+  "autoCopyPlaylist": "プレイリストのリンクを自動コピー",
+
+  "history": "最近のプレイリストを見る",
+  "back": "戻る",
+  "recentHistory": "最近のプレイリスト - トップ 5",
+  "clearHistory": "履歴を削除",
+  "noHistory": "プレイリストの履歴はまだありません。",
+  "songsPlaylist": "曲のプレイリスト",
+  "view": "表示",
+  "copy": "コピー",
+  "copied": "コピーしました",
+
+  "settings": "設定",
+  "theme": "テーマ",
+  "system": "システム",
+  "light": "ライト",
+  "dark": "ダーク",
+  "language": "言語",
+
+  "playlistExpiry": "プレイリストのリンクは一時的なもので、作成から約48時間後に期限切れになる場合があります。",
+
+  "temporaryLinks": "プレイリストのリンクは一時的なもので、作成から約48時間後に期限切れになる場合があります。",
+
+  "supportTitle": "YouTube Mix Playlist Generator を気に入っていただけたら、下記のプラットフォームで評価してください ⭐。",
+
+  "chrome": "Chrome",
+  "github": "GitHub",
+
+  "safeSecure": "安全・安心",
+  "madeInIndia": "インド製",
+
+  "confirmDeleteHistory": "保存されているすべてのプレイリスト履歴が完全に削除されます。\n\n続行しますか？",
+
+  "version": "バージョン 1.0"
+}
